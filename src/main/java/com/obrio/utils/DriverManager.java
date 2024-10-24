@@ -2,7 +2,6 @@ package com.obrio.utils;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
-import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
@@ -23,14 +22,14 @@ public class DriverManager {
 
     private static AndroidDriver driver;
 
-    @BeforeClass
+    @BeforeClass(alwaysRun = true)
     public void setUp() {
         setProperties();
         setCapability();
         setDriver();
     }
 
-    @AfterClass
+    @AfterClass(alwaysRun = true)
     public void tearDown() {
         if (driver != null) {
             driver.quit();
