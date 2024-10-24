@@ -1,21 +1,27 @@
-package co.obrio;
+package com.obrio.utils;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
+import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Properties;
 
-public class BaseTest {
+public class DriverManager {
+
+    private DriverManager(){
+
+    }
 
     private static Properties properties = null;
     private static UiAutomator2Options capabilities = null;
 
-    protected AndroidDriver driver;
+    private static AndroidDriver driver;
 
     @BeforeClass
     public void setUp() {
@@ -26,12 +32,12 @@ public class BaseTest {
 
     @AfterClass
     public void tearDown() {
-        if(driver != null) {
+        if (driver != null) {
             driver.quit();
         }
     }
 
-    private void setProperties() {
+    private static void setProperties() {
         if (properties == null) {
             try {
                 properties = new Properties();
@@ -54,7 +60,20 @@ public class BaseTest {
         }
     }
 
-    private void setCapability() {
+    public static AndroidDriver getDriver() {
+        if (driver == null) {
+            try {
+                setProperties();
+                setCapability();
+                driver = new AndroidDriver(new URL(properties.getProperty("appium.server.url")), capabilities);
+            } catch (MalformedURLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return driver;
+    }
+
+    private static void setCapability() {
         if (capabilities == null) {
             capabilities = new UiAutomator2Options();
             capabilities.setCapability("platformName", properties.getProperty("platform.name"));
@@ -65,9 +84,10 @@ public class BaseTest {
         }
     }
 
-    private String getAppAbsolutePath() {
+
+    private static String getAppAbsolutePath() {
         String appName = properties.getProperty("app.name");
-        URL resource = getClass().getClassLoader().getResource(appName);
+        URL resource = DriverManager.class.getClassLoader().getResource(appName);
         if (resource == null) {
             throw new RuntimeException("App not found " + appName + " in resource directory");
         }
@@ -79,7 +99,15 @@ public class BaseTest {
         }
     }
 
-    private String getPathWithCorrectSeparator(String path) {
+    public static String getSessionId() {
+        if (driver != null) {
+            return driver.getSessionId().toString();
+        } else {
+            throw new IllegalStateException("Session has not been started yet.");
+        }
+    }
+
+    private static String getPathWithCorrectSeparator(String path) {
         return path.replaceAll("/", File.separator);
     }
 }

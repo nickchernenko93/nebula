@@ -21,6 +21,7 @@
       <artifactId>testng</artifactId>
       <version>7.10.2</version>
       <scope>test</scope>
+      <scope>main</scope>
     </dependency>
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
