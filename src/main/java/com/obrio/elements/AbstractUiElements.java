@@ -3,6 +3,7 @@ package com.obrio.elements;
 import org.openqa.selenium.WebElement;
 
 public abstract class AbstractUiElements implements UIElements {
+
     protected WebElement element;
 
     public AbstractUiElements(WebElement element, String elementName) {

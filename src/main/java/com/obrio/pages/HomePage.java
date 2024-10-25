@@ -10,11 +10,20 @@ public class HomePage extends BasePage {
     @AndroidFindBy(id = "genesis.nebula:id/gradient")
     private WebElement nebulaLabel;
 
-    @AndroidFindBy(id = "android.widget.Button")
+    @AndroidFindBy(id = "genesis.nebula:id/startJobsTypeButton")
     private WebElement getStartedButton;
 
     public IButton getStartedButton() {
         return new Button(getStartedButton, "'Get Started' button");
+    }
+
+    @Override
+    protected void waitUntilPageIsLoaded(WebElement element) {
+        super.waitUntilPageIsLoaded(nebulaLabel);
+    }
+
+    public boolean isHomePageOpened(){
+        return nebulaLabel.isDisplayed();
     }
 
     public GoalsPage openGoalsPage() {

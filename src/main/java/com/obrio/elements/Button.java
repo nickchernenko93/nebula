@@ -3,6 +3,7 @@ package com.obrio.elements;
 import org.openqa.selenium.WebElement;
 
 public class Button extends AbstractUiElements implements IButton {
+
     public Button(WebElement element) {
         super(element);
     }

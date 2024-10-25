@@ -59,7 +59,7 @@ public class DriverManager {
         }
     }
 
-    public static AndroidDriver getDriver() {
+    public static AndroidDriver getDriverInstance() {
         if (driver == null) {
             try {
                 setProperties();
@@ -80,7 +80,7 @@ public class DriverManager {
             capabilities.setCapability("deviceName", properties.getProperty("device.name"));
             capabilities.setCapability("automationName", properties.getProperty("automationName"));
             capabilities.setCapability("app", getAppAbsolutePath());
-            capabilities.setCapability("newCommandTimeout", 600);
+            capabilities.setCapability("newCommandTimeout", 1200);
         }
     }
 
