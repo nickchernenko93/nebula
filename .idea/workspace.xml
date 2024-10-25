@@ -5,16 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="41968955-42e9-4875-84d9-ed7329e088f7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/obrio/data/GoalValues.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/obrio/tests/BaseTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/obrio/utils/WaitUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/elements/AbstractUiElements.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/elements/AbstractUiElements.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/elements/Button.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/elements/Button.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/pages/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/pages/BasePage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/pages/GoalsPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/pages/GoalsPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/pages/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/pages/HomePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/utils/DriverManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/utils/DriverManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/obrio/tests/Testing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/obrio/tests/VerifySuccessfullyNebulaRegistrationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/obrio/tests/VerifySuccessfullyNebulaRegistrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/obrio/tests/VerifySuccessfullyNebulaRegistrationTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -194,7 +188,7 @@
       <workItem from="1729743028864" duration="10000" />
       <workItem from="1729743094121" duration="43000" />
       <workItem from="1729743156732" duration="6553000" />
-      <workItem from="1729840529178" duration="9955000" />
+      <workItem from="1729840529178" duration="11799000" />
     </task>
     <servers />
   </component>
@@ -205,9 +199,9 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/obrio/pages/GoalsPage.java</url>
-          <line>17</line>
-          <option name="timeStamp" value="8" />
+          <url>file://$PROJECT_DIR$/src/test/java/com/obrio/tests/VerifySuccessfullyNebulaRegistrationTest.java</url>
+          <line>42</line>
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

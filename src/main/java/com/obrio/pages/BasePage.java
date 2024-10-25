@@ -1,6 +1,6 @@
 package com.obrio.pages;
 
-import com.obrio.utils.DriverManager;
+import com.obrio.drivers.DriverManager;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
