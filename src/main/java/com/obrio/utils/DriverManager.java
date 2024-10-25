@@ -80,6 +80,7 @@ public class DriverManager {
             capabilities.setCapability("deviceName", properties.getProperty("device.name"));
             capabilities.setCapability("automationName", properties.getProperty("automationName"));
             capabilities.setCapability("app", getAppAbsolutePath());
+            capabilities.setCapability("newCommandTimeout", 600);
         }
     }
 
