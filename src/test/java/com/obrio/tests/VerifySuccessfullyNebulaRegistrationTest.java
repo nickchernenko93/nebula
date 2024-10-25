@@ -1,7 +1,9 @@
 package com.obrio.tests;
 
+import com.obrio.pages.BirthChartPage;
 import com.obrio.pages.GoalsPage;
 import com.obrio.pages.HomePage;
+import com.obrio.pages.YourGoalsPage;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
@@ -16,6 +18,9 @@ public class VerifySuccessfullyNebulaRegistrationTest extends BaseTest {
 
     private HomePage homePage;
     private GoalsPage goalsPage;
+    private YourGoalsPage yourGoalsPage;
+    private BirthChartPage birthChartPage;
+    private final String PAGE_SHOULD_BE_OPENED = "Page should be opened";
 
     @DataProvider(name = "goalsDataProvider")
     public Object[][] goalsDataProvider() {
@@ -34,7 +39,7 @@ public class VerifySuccessfullyNebulaRegistrationTest extends BaseTest {
 
     @Test
     public void verifyHomePageIsOpened() {
-        Assert.assertTrue(homePage.isHomePageOpened(), "Home page should be opened");
+        Assert.assertTrue(homePage.isHomePageOpened(), PAGE_SHOULD_BE_OPENED);
     }
 
     @Test(dataProvider = "goalsDataProvider", dependsOnMethods = "verifyHomePageIsOpened", alwaysRun = true)
@@ -42,6 +47,18 @@ public class VerifySuccessfullyNebulaRegistrationTest extends BaseTest {
         goalsPage.selectGoals(goal);
         soft.assertTrue(goalsPage.isGoalSelected(goal), String.format("'%s' goal should be selected", goal));
         soft.assertAll();
+    }
+
+    @Test(dependsOnMethods = "verifyGoalPageIsOpenedAndGoalsAreSelected", alwaysRun = true)
+    public void verifyYourGoalsPageIsOpened() {
+        yourGoalsPage = goalsPage.clickNextButton();
+        Assert.assertTrue(yourGoalsPage.isYourGoalPageOpened(), PAGE_SHOULD_BE_OPENED);
+    }
+
+    @Test(dependsOnMethods = "verifyGoalPageIsOpenedAndGoalsAreSelected", alwaysRun = true)
+    public void verifyBirthChatPageIsOpened() {
+        birthChartPage = yourGoalsPage.clickNextButton();
+        Assert.assertTrue(birthChartPage.isBirthChartPageOpened(), PAGE_SHOULD_BE_OPENED);
     }
 
     @AfterMethod(alwaysRun = true)

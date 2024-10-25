@@ -2,15 +2,15 @@ package com.obrio.elements;
 
 import org.openqa.selenium.WebElement;
 
-public abstract class AbstractUiElements implements UIElements {
+public abstract class AbstractUIElements implements UIElements {
 
     protected WebElement element;
 
-    public AbstractUiElements(WebElement element, String elementName) {
+    public AbstractUIElements(WebElement element, String elementName) {
         this.element = element;
     }
 
-    public AbstractUiElements(WebElement element) {
+    public AbstractUIElements(WebElement element) {
         this.element = element;
     }
 

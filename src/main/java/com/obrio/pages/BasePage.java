@@ -20,7 +20,7 @@ public abstract class BasePage {
         WebDriver driver = DriverManager.getDriverInstance();
 
         FluentWait<WebDriver> wait = new FluentWait<>(driver)
-                .withTimeout(Duration.ofSeconds(20))
+                .withTimeout(Duration.ofSeconds(30))
                 .pollingEvery(Duration.ofSeconds(2))
                 .ignoring(NoSuchElementException.class)
                 .ignoring(StaleElementReferenceException.class);
