@@ -21,9 +21,12 @@ public class VerifySuccessfullyNebulaRegistrationTest extends BaseTest {
     private BirthChartPage birthChartPage;
     private DateOfBirthPage dateOfBirthPage;
     private TimeOfBirthPage timeOfBirthPage;
-    private final String PAGE_SHOULD_BE_OPENED = "Page should be opened";
+    private PlaceOfBirthPage placeOfBirthPage;
+    private PalmReadingPage palmReadingPage;
+    private final String SCREEN_SHOULD_BE_OPENED = "Screen should be opened";
     private String day;
     private String month;
+    private String placeOfBirth;
 
     @DataProvider(name = "goalsDataProvider")
     public Object[][] goalsDataProvider() {
@@ -43,7 +46,7 @@ public class VerifySuccessfullyNebulaRegistrationTest extends BaseTest {
 
     @Test
     public void verifyHomePageIsOpened() {
-        Assert.assertTrue(homePage.isHomePageOpened(), PAGE_SHOULD_BE_OPENED);
+        Assert.assertTrue(homePage.isHomePageOpened(), SCREEN_SHOULD_BE_OPENED);
     }
 
     @Test(dataProvider = "goalsDataProvider", dependsOnMethods = "verifyHomePageIsOpened", alwaysRun = true)
@@ -56,13 +59,13 @@ public class VerifySuccessfullyNebulaRegistrationTest extends BaseTest {
     @Test(dependsOnMethods = "verifyGoalPageIsOpenedAndGoalsAreSelected", alwaysRun = true)
     public void verifyYourGoalsPageIsOpened() {
         yourGoalsPage = goalsPage.clickNextButtonAndOpenYourGoalsPage();
-        Assert.assertTrue(yourGoalsPage.isYourGoalPageOpened(), PAGE_SHOULD_BE_OPENED);
+        Assert.assertTrue(yourGoalsPage.isYourGoalPageOpened(), SCREEN_SHOULD_BE_OPENED);
     }
 
     @Test(dependsOnMethods = "verifyYourGoalsPageIsOpened", alwaysRun = true)
     public void verifyBirthChatPageIsOpened() {
         birthChartPage = yourGoalsPage.clickNextButtonAndOpenBirthChartPage();
-        Assert.assertTrue(birthChartPage.isBirthChartPageOpened(), PAGE_SHOULD_BE_OPENED);
+        Assert.assertTrue(birthChartPage.isBirthChartPageOpened(), SCREEN_SHOULD_BE_OPENED);
     }
 
     @Test(dependsOnMethods = "verifyBirthChatPageIsOpened", alwaysRun = true)
@@ -77,11 +80,26 @@ public class VerifySuccessfullyNebulaRegistrationTest extends BaseTest {
     @Test(dependsOnMethods = "verifyDayOfBirthPageOpenedAndDateIsSet", alwaysRun = true)
     public void verifyInfoMessageAppearedAfterPressingIDontKnowButton() {
         String expectedInfoMessage = "We need the time of your birth to make astrological predictions more accurate. You can come back and add it when you figure it out.";
-        String actualMessage = dateOfBirthPage.openTimeOfBirthPage()
-                .tapIDontKnowButton()
+        timeOfBirthPage = dateOfBirthPage.clickNextButtonAndOpenTimeOfBirthPage()
+                .tapIDontKnowButton();
+        String actualMessage = timeOfBirthPage
                 .getTextFromInfoMessage();
         Assert.assertEquals(actualMessage, expectedInfoMessage,
                 String.format("'%s' actual message is not equal to '%s' expected", actualMessage, expectedInfoMessage));
+    }
+
+    @Test(dependsOnMethods = "verifyInfoMessageAppearedAfterPressingIDontKnowButton", alwaysRun = true)
+    public void verifyPlaceOfBirthValueIsSet(){
+        placeOfBirthPage = timeOfBirthPage.clickSkipButtonAndOpenPlaceOfBirthPage();
+        placeOfBirthPage.setPlaceOfBirth(placeOfBirth);
+        Assert.assertTrue(placeOfBirthPage.isSearchedPlacePresentInSearchResult(placeOfBirth),
+                String.format("'%s' city should be present in search result", placeOfBirth));
+    }
+
+    @Test
+    public void verifyPlaceOfBirthSelectedAndPalmScreenOpened(){
+        palmReadingPage = placeOfBirthPage.confirmPlaceOfBirthAndOpenPalmReadingScreen(placeOfBirth);
+        System.out.println("end");
     }
 
     @AfterMethod(alwaysRun = true)
@@ -96,5 +114,6 @@ public class VerifySuccessfullyNebulaRegistrationTest extends BaseTest {
         DateFormatUtils dateFormatUtils = new DateFormatUtils();
         day = dateFormatUtils.formatDayDate(date);
         month = dateFormatUtils.formatMonthDate(date);
+        placeOfBirth = "New York";
     }
 }

@@ -36,7 +36,7 @@ public class DateOfBirthPage extends BasePage {
         swipeToDayElement(By.xpath(String.format(DATE_PICKER_WHEEL, day)), 31);
     }
 
-    // TODO: 26.10.2024 need select year in through keyboard input because to many values present
+    // TODO: 26.10.2024 need select year through keyboard input because to many values present
     public void selectYear(String year) {
         swipeToYearElement(By.xpath(String.format(DATE_PICKER_WHEEL, year)), 2);
     }
@@ -45,7 +45,7 @@ public class DateOfBirthPage extends BasePage {
         return DriverManager.getDriverInstance().findElement(By.xpath(String.format(DATE_PICKER_WHEEL, value))).isDisplayed();
     }
 
-    public TimeOfBirthPage openTimeOfBirthPage() {
+    public TimeOfBirthPage clickNextButtonAndOpenTimeOfBirthPage() {
         nextButton().click();
         return new TimeOfBirthPage();
     }

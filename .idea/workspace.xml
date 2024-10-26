@@ -5,12 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="41968955-42e9-4875-84d9-ed7329e088f7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/obrio/pages/PlaceOfBirthPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/obrio/elements/IInput.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/obrio/elements/Input.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/elements/AbstractUIElements.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/elements/AbstractUIElements.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/pages/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/pages/BasePage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/pages/DateOfBirthPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/pages/DateOfBirthPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/pages/TimeOfBirthPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/pages/TimeOfBirthPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/pages/PlaceOfBirthPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/pages/PlaceOfBirthPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/utils/WaitUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/utils/WaitUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/utils/WebElementUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/utils/WebElementUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/obrio/tests/VerifySuccessfullyNebulaRegistrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/obrio/tests/VerifySuccessfullyNebulaRegistrationTest.java" afterDir="false" />
@@ -194,7 +194,7 @@
       <workItem from="1729743028864" duration="10000" />
       <workItem from="1729743094121" duration="43000" />
       <workItem from="1729743156732" duration="6553000" />
-      <workItem from="1729840529178" duration="40664000" />
+      <workItem from="1729840529178" duration="46570000" />
     </task>
     <servers />
   </component>
@@ -206,18 +206,18 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/com/obrio/tests/VerifySuccessfullyNebulaRegistrationTest.java</url>
-          <line>42</line>
-          <option name="timeStamp" value="40" />
+          <line>93</line>
+          <option name="timeStamp" value="44" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/com/obrio/tests/VerifySuccessfullyNebulaRegistrationTest.java</url>
-          <line>83</line>
-          <option name="timeStamp" value="42" />
+          <line>92</line>
+          <option name="timeStamp" value="45" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/obrio/tests/VerifySuccessfullyNebulaRegistrationTest.java</url>
-          <line>81</line>
-          <option name="timeStamp" value="43" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/obrio/pages/PlaceOfBirthPage.java</url>
+          <line>33</line>
+          <option name="timeStamp" value="52" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

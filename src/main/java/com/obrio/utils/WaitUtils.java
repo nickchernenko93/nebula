@@ -1,14 +1,12 @@
 package com.obrio.utils;
 
 import io.appium.java_client.android.AndroidDriver;
-import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.ElementNotInteractableException;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
-import java.util.function.Function;
-import java.util.function.Supplier;
 
 import static com.obrio.drivers.DriverManager.getDriverInstance;
 
