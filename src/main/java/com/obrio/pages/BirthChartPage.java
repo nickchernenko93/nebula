@@ -10,7 +10,7 @@ public class BirthChartPage extends BasePage {
     @AndroidFindBy(id = "genesis.nebula:id/toolbarBackTitleText")
     private WebElement birthChartTitle;
 
-    @AndroidFindBy(id = "new UiSelector().resourceId(\"genesis.nebula:id/primaryButton\")")
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"genesis.nebula:id/primaryButton\")")
     private WebElement nextButton;
 
     private IButton nextButton() {

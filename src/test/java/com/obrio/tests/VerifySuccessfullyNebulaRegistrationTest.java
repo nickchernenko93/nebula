@@ -1,9 +1,9 @@
 package com.obrio.tests;
 
-import com.obrio.pages.BirthChartPage;
-import com.obrio.pages.GoalsPage;
-import com.obrio.pages.HomePage;
-import com.obrio.pages.YourGoalsPage;
+import com.obrio.drivers.DriverManager;
+import com.obrio.pages.*;
+import com.obrio.utils.SwipeUtils;
+import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
@@ -20,6 +20,7 @@ public class VerifySuccessfullyNebulaRegistrationTest extends BaseTest {
     private GoalsPage goalsPage;
     private YourGoalsPage yourGoalsPage;
     private BirthChartPage birthChartPage;
+    private DateOfBirthPage dateOfBirthPage;
     private final String PAGE_SHOULD_BE_OPENED = "Page should be opened";
 
     @DataProvider(name = "goalsDataProvider")
@@ -55,10 +56,17 @@ public class VerifySuccessfullyNebulaRegistrationTest extends BaseTest {
         Assert.assertTrue(yourGoalsPage.isYourGoalPageOpened(), PAGE_SHOULD_BE_OPENED);
     }
 
-    @Test(dependsOnMethods = "verifyGoalPageIsOpenedAndGoalsAreSelected", alwaysRun = true)
+    @Test(dependsOnMethods = "verifyYourGoalsPageIsOpened", alwaysRun = true)
     public void verifyBirthChatPageIsOpened() {
         birthChartPage = yourGoalsPage.clickNextButton();
         Assert.assertTrue(birthChartPage.isBirthChartPageOpened(), PAGE_SHOULD_BE_OPENED);
+    }
+
+    @Test(dependsOnMethods = "verifyBirthChatPageIsOpened", alwaysRun = true)
+    public void verifyDayOfBirthPageOpened(){
+        dateOfBirthPage = birthChartPage.clickNextButton();
+        new SwipeUtils().swipeToElement(By.xpath("//android.widget.EditText[@resource-id='android:id/numberpicker_input' and @text='Aug']"), 12);
+        System.out.println("end");
     }
 
     @AfterMethod(alwaysRun = true)

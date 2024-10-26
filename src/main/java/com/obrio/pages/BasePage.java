@@ -21,7 +21,7 @@ public abstract class BasePage {
 
         FluentWait<WebDriver> wait = new FluentWait<>(driver)
                 .withTimeout(Duration.ofSeconds(30))
-                .pollingEvery(Duration.ofSeconds(2))
+                .pollingEvery(Duration.ofSeconds(3))
                 .ignoring(NoSuchElementException.class)
                 .ignoring(StaleElementReferenceException.class);
 
