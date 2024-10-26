@@ -1,5 +1,6 @@
 package com.obrio.pages;
 
+import com.obrio.data.GoalValues;
 import com.obrio.elements.Button;
 import com.obrio.elements.IButton;
 import io.appium.java_client.pagefactory.AndroidFindBy;

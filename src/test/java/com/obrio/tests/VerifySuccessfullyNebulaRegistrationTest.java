@@ -9,8 +9,10 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.lang.reflect.Method;
+import java.util.Arrays;
 import java.util.Date;
 
+import static com.obrio.data.Gender.*;
 import static com.obrio.data.GoalValues.*;
 
 public class VerifySuccessfullyNebulaRegistrationTest extends BaseTest {
@@ -24,9 +26,12 @@ public class VerifySuccessfullyNebulaRegistrationTest extends BaseTest {
     private TimeOfBirthScreen timeOfBirthScreen;
     private PlaceOfBirthScreen placeOfScreen;
     private PalmReadingScreen palmReadingScreen;
+    private GenderScreen genderScreen;
+    private EnterNameScreen enterNameScreen;
     private String day;
     private String month;
     private String placeOfBirth;
+    private String name;
 
     @DataProvider(name = "goalsDataProvider")
     public Object[][] goalsDataProvider() {
@@ -90,18 +95,33 @@ public class VerifySuccessfullyNebulaRegistrationTest extends BaseTest {
     }
 
     @Test(dependsOnMethods = "verifyInfoMessageAppearedAfterPressingIDontKnowButton", alwaysRun = true)
-    public void verifyPlaceOfBirthValueIsSet(){
+    public void verifyPlaceOfBirthValueIsSet() {
         placeOfScreen = timeOfBirthScreen.clickSkipButtonAndOpenPlaceOfBirthScreen();
         placeOfScreen.setPlaceOfBirth(placeOfBirth);
         Assert.assertTrue(placeOfScreen.isSearchedPlacePresentInSearchResult(placeOfBirth),
                 String.format("'%s' city should be present in search result", placeOfBirth));
     }
 
-    @Test
-    public void verifyPlaceOfBirthSelectedAndPalmScreenOpened(){
+    @Test(dependsOnMethods = "verifyPlaceOfBirthValueIsSet", alwaysRun = true)
+    public void verifyPlaceOfBirthSelectedAndPalmScreenOpened() {
         palmReadingScreen = placeOfScreen.confirmPlaceOfBirthAndOpenPalmReadingScreen(placeOfBirth);
+        Assert.assertTrue(palmReadingScreen.isPalmReadingScreenOpened(), SCREEN_SHOULD_BE_OPENED);
+    }
+
+    @Test(dependsOnMethods = "verifyPlaceOfBirthSelectedAndPalmScreenOpened", alwaysRun = true)
+    public void verifyGenderScreenOpenedAndGenderTilePresent() {
+        genderScreen = palmReadingScreen.clickSkipButtonAndOpenGenderScreen();
+        Arrays.asList(MALE, FEMALE, NON_BINARY).forEach(gender -> soft.assertTrue(genderScreen.isGenderTileShown(gender),
+                String.format("'%s' gender tile should be shown", gender.getValue())));
+        soft.assertAll();
+    }
+
+    @Test(dependsOnMethods = "verifyGenderScreenOpenedAndGenderTilePresent", alwaysRun = true)
+    public void verifyEnterNameScreenOpenedAndNameTilePresent() {
+        enterNameScreen = genderScreen.selectGenderAndOpenNameScreen(MALE);
         System.out.println("end");
     }
+
 
     @AfterMethod(alwaysRun = true)
     private void afterMethodActions(Method method) {
@@ -116,5 +136,6 @@ public class VerifySuccessfullyNebulaRegistrationTest extends BaseTest {
         day = dateFormatUtils.formatDayDate(date);
         month = dateFormatUtils.formatMonthDate(date);
         placeOfBirth = "New York";
+        name = FAKER.name().fullName();
     }
 }
