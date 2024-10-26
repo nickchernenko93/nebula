@@ -1,16 +1,16 @@
 package com.obrio.data;
 
-public enum Gender {
-    MALE("Male"),
-    FEMALE("Female"),
-    NON_BINARY("Non–binary");
+public enum Interests {
 
+    LOVE("love"),
+    MONEY("money");
     private final String value;
 
-    Gender(String value) {
+    Interests(String value) {
         this.value = value;
     }
+
     public String getValue() {
         return value;
     }
-}
+    }

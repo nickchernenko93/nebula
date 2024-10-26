@@ -65,4 +65,12 @@ public class ElementUtils {
 
         }
     }
+
+    public void tryWaitUntil(Supplier<Boolean> condition) {
+        try {
+            waitUntil(condition);
+        } catch (Exception ignored) {
+
+        }
+    }
 }

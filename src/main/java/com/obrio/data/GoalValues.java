@@ -14,5 +14,4 @@ public enum GoalValues {
     public String getValue() {
         return value;
     }
-
 }

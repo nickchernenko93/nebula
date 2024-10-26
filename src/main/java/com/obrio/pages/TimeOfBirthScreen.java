@@ -41,7 +41,7 @@ public class TimeOfBirthScreen extends BaseScreen {
     }
 
     public String getTextFromInfoMessage() {
-        webElementUtils().tryWaitUntil(() -> isElementShown(infoMessage), 2);
+        elementUtils().tryWaitUntil(() -> isElementShown(infoMessage), 2);
         return infoMessage.getText();
     }
 

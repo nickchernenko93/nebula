@@ -5,13 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="41968955-42e9-4875-84d9-ed7329e088f7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/obrio/data/Interests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/obrio/data/RelationshipStatuses.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/obrio/pages/InterestsScreen.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/obrio/pages/MotivationScreen.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/obrio/pages/RelationshipStatusScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/data/Gender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/data/Genders.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/data/GoalValues.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/data/GoalValues.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/elements/Input.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/elements/Input.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/pages/BaseScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/pages/BaseScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/pages/EnterNameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/pages/EnterNameScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/pages/GenderScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/pages/GenderScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/pages/PlaceOfBirthScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/pages/PlaceOfBirthScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/pages/TimeOfBirthScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/pages/TimeOfBirthScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/utils/ElementUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/utils/ElementUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/utils/WaitUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/utils/WaitUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/obrio/tests/VerifySuccessfullyNebulaRegistrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/obrio/tests/VerifySuccessfullyNebulaRegistrationTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +56,7 @@
     "TestNG.Testing.executor": "Debug",
     "TestNG.Testing.test (1).executor": "Debug",
     "TestNG.Testing.test.executor": "Debug",
-    "TestNG.VerifySuccessfullyNebulaRegistrationTest.executor": "Run",
+    "TestNG.VerifySuccessfullyNebulaRegistrationTest.executor": "Debug",
     "TestNG.VerifySuccessfullyNebulaRegistrationTest.verifyDayOfBirthPageOpened.executor": "Run",
     "TestNG.VerifySuccessfullyNebulaRegistrationTest.verifyHomePageIsOpened.executor": "Debug",
     "git-widget-placeholder": "main",
@@ -192,7 +200,7 @@
       <workItem from="1729743028864" duration="10000" />
       <workItem from="1729743094121" duration="43000" />
       <workItem from="1729743156732" duration="6553000" />
-      <workItem from="1729840529178" duration="53082000" />
+      <workItem from="1729840529178" duration="58028000" />
     </task>
     <servers />
   </component>
@@ -204,8 +212,8 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/com/obrio/tests/VerifySuccessfullyNebulaRegistrationTest.java</url>
-          <line>121</line>
-          <option name="timeStamp" value="55" />
+          <line>133</line>
+          <option name="timeStamp" value="65" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

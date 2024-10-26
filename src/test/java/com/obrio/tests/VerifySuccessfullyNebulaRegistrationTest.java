@@ -12,8 +12,11 @@ import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.Date;
 
-import static com.obrio.data.Gender.*;
+import static com.obrio.data.Genders.*;
 import static com.obrio.data.GoalValues.*;
+import static com.obrio.data.Interests.LOVE;
+import static com.obrio.data.Interests.MONEY;
+import static com.obrio.data.RelationshipStatuses.SINGLE;
 
 public class VerifySuccessfullyNebulaRegistrationTest extends BaseTest {
 
@@ -27,7 +30,8 @@ public class VerifySuccessfullyNebulaRegistrationTest extends BaseTest {
     private PlaceOfBirthScreen placeOfScreen;
     private PalmReadingScreen palmReadingScreen;
     private GenderScreen genderScreen;
-    private EnterNameScreen enterNameScreen;
+    private RelationshipStatusScreen relationshipStatusScreen;
+    private MotivationScreen motivationScreen;
     private String day;
     private String month;
     private String placeOfBirth;
@@ -80,6 +84,7 @@ public class VerifySuccessfullyNebulaRegistrationTest extends BaseTest {
 //        dateOfBirthPage.selectDay(day);
 //        Arrays.asList(day, month).forEach(value -> soft.assertTrue(dateOfBirthPage.isDateValueSetInPickerWheel(value),
 //                String.format("'%s' value should be present and set", value)));
+//        soft.assertAll();
     }
 
     @Test(dependsOnMethods = "verifyDayOfBirthScreenOpenedAndDateIsSet", alwaysRun = true)
@@ -111,17 +116,23 @@ public class VerifySuccessfullyNebulaRegistrationTest extends BaseTest {
     @Test(dependsOnMethods = "verifyPlaceOfBirthSelectedAndPalmScreenOpened", alwaysRun = true)
     public void verifyGenderScreenOpenedAndGenderTilePresent() {
         genderScreen = palmReadingScreen.clickSkipButtonAndOpenGenderScreen();
-        Arrays.asList(MALE, FEMALE, NON_BINARY).forEach(gender -> soft.assertTrue(genderScreen.isGenderTileShown(gender),
-                String.format("'%s' gender tile should be shown", gender.getValue())));
+        Arrays.asList(MALE, FEMALE, NON_BINARY).forEach(genders -> soft.assertTrue(genderScreen.isGenderTileShown(genders),
+                String.format("'%s' gender tile should be shown", genders.getValue())));
         soft.assertAll();
     }
 
     @Test(dependsOnMethods = "verifyGenderScreenOpenedAndGenderTilePresent", alwaysRun = true)
-    public void verifyEnterNameScreenOpenedAndNameTilePresent() {
-        enterNameScreen = genderScreen.selectGenderAndOpenNameScreen(MALE);
-        System.out.println("end");
+    public void verifyNameIsSetAndRelationshipScreenOpened() {
+        relationshipStatusScreen = genderScreen.selectGenderAndOpenNameScreen(MALE)
+                .setNameAndOpenRelationshipStatusScreen(name);
+        Assert.assertTrue(relationshipStatusScreen.isRelationshipScreenOpened(), SCREEN_SHOULD_BE_OPENED);
     }
 
+    @Test(dependsOnMethods = "verifyNameIsSetAndRelationshipScreenOpened", alwaysRun = true)
+    public void verifyRelationshipStatusAndInterestsSelectedAndMotivationScreenOpened() {
+        motivationScreen = relationshipStatusScreen.selectRelationshipStatusAndOpenInterestsScreen(SINGLE)
+                .selectInterestsAndOpenMotivationScreen(MONEY.getValue(), LOVE.getValue());
+    }
 
     @AfterMethod(alwaysRun = true)
     private void afterMethodActions(Method method) {

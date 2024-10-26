@@ -1,6 +1,6 @@
 package com.obrio.pages;
 
-import com.obrio.data.Gender;
+import com.obrio.data.Genders;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -21,15 +21,15 @@ public class GenderScreen extends BaseScreen {
         super.waitUntilScreenIsLoaded(genderTitle);
     }
 
-    public boolean isGenderTileShown(Gender gender) {
-        String locator = String.format(GENDER_TILE_LOCATOR, gender.getValue());
+    public boolean isGenderTileShown(Genders genders) {
+        String locator = String.format(GENDER_TILE_LOCATOR, genders.getValue());
         WebElement tile = getDriverInstance().findElement(By.xpath(locator));
         return isElementShown(tile);
 
     }
 
-    public EnterNameScreen selectGenderAndOpenNameScreen(Gender gender) {
-        String locator = String.format(GENDER_TILE_LOCATOR, gender.getValue());
+    public EnterNameScreen selectGenderAndOpenNameScreen(Genders genders) {
+        String locator = String.format(GENDER_TILE_LOCATOR, genders.getValue());
         getDriverInstance().findElement(By.xpath(locator)).click();
         return new EnterNameScreen();
     }

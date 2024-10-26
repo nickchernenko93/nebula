@@ -21,7 +21,7 @@ public class Input extends AbstractUIElements implements IInput {
     }
 
     public void type(String text) {
-        waitUntil(()-> getWrappedElement().isDisplayed(), 2);
+        waitUntil(()-> getWrappedElement().isDisplayed(), 3);
         waitUntil(() -> isClickable(getWrappedElement()));
         getWrappedElement().click();
         sendKeys(text);

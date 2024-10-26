@@ -18,7 +18,7 @@ public abstract class BaseScreen {
         PageFactory.initElements(new AppiumFieldDecorator(DriverManager.getDriverInstance()), this);
     }
 
-    protected ElementUtils webElementUtils() {
+    protected ElementUtils elementUtils() {
         return elementUtils != null ? elementUtils : (elementUtils = ElementUtils.getInstance());
     }
 
