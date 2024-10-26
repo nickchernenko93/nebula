@@ -30,11 +30,11 @@ public class GoalsPage extends BasePage {
     }
 
     public boolean isGoalSelected(String... goal) {
-        return getWebDriverWait(1).until(
+        return getWebDriverWait(2).until(
                 ExpectedConditions.elementToBeSelected(By.xpath(String.format(GOALS_LOCATOR, (Object[]) goal))));
     }
 
-    public YourGoalsPage clickNextButton(){
+    public YourGoalsPage clickNextButtonAndOpenYourGoalsPage(){
         nextButton().click();
         return new YourGoalsPage();
     }

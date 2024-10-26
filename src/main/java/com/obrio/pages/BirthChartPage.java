@@ -27,7 +27,7 @@ public class BirthChartPage extends BasePage {
         return birthChartTitle.isDisplayed();
     }
 
-    public DateOfBirthPage clickNextButton() {
+    public DateOfBirthPage clickNextButtonAndOpenDateOfBirthPage() {
         nextButton().click();
         return new DateOfBirthPage();
     }

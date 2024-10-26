@@ -26,7 +26,7 @@ public class YourGoalsPage extends BasePage {
         return gotItLabel.isDisplayed();
     }
 
-    public BirthChartPage clickNextButton(){
+    public BirthChartPage clickNextButtonAndOpenBirthChartPage(){
         nextButton().click();
         return new BirthChartPage();
     }

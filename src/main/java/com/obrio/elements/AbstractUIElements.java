@@ -1,6 +1,12 @@
 package com.obrio.elements;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+
+import java.util.function.Function;
+import java.util.function.Supplier;
+
+import static com.obrio.utils.WaitUtils.getWebDriverWait;
 
 public abstract class AbstractUIElements implements UIElements {
 

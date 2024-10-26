@@ -26,7 +26,7 @@ public class HomePage extends BasePage {
         return nebulaLabel.isDisplayed();
     }
 
-    public GoalsPage openGoalsPage() {
+    public GoalsPage clickGetStartedButtonAndOpenGoalsPage() {
         getStartedButton().click();
         return new GoalsPage();
     }

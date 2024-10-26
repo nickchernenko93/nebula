@@ -1,6 +1,8 @@
 package com.obrio.pages;
 
 import com.obrio.drivers.DriverManager;
+import com.obrio.elements.Button;
+import com.obrio.elements.IButton;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -13,6 +15,13 @@ public class DateOfBirthPage extends BasePage {
 
     @AndroidFindBy(id = "genesis.nebula:id/onboardingBirthDateImage")
     private WebElement birthDateLabel;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"genesis.nebula:id/primaryButton\")")
+    private WebElement nextButton;
+
+    private IButton nextButton() {
+        return new Button(nextButton, "'Next' button");
+    }
 
     @Override
     protected void waitUntilPageIsLoaded(WebElement element) {
@@ -27,12 +36,17 @@ public class DateOfBirthPage extends BasePage {
         swipeToDayElement(By.xpath(String.format(DATE_PICKER_WHEEL, day)), 31);
     }
 
-    // TODO: 26.10.2024 need select year in other way, to many values could be set
+    // TODO: 26.10.2024 need select year in through keyboard input because to many values present
     public void selectYear(String year) {
         swipeToYearElement(By.xpath(String.format(DATE_PICKER_WHEEL, year)), 2);
     }
 
     public boolean isDateValueSetInPickerWheel(String value) {
         return DriverManager.getDriverInstance().findElement(By.xpath(String.format(DATE_PICKER_WHEEL, value))).isDisplayed();
+    }
+
+    public TimeOfBirthPage openTimeOfBirthPage() {
+        nextButton().click();
+        return new TimeOfBirthPage();
     }
 }
