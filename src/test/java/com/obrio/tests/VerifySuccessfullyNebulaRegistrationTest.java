@@ -1,9 +1,7 @@
 package com.obrio.tests;
 
-import com.obrio.drivers.DriverManager;
 import com.obrio.pages.*;
-import com.obrio.utils.SwipeUtils;
-import org.openqa.selenium.By;
+import com.obrio.utils.DateFormatUtils;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
@@ -11,6 +9,8 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.lang.reflect.Method;
+import java.util.Arrays;
+import java.util.Date;
 
 import static com.obrio.data.GoalValues.*;
 
@@ -22,6 +22,8 @@ public class VerifySuccessfullyNebulaRegistrationTest extends BaseTest {
     private BirthChartPage birthChartPage;
     private DateOfBirthPage dateOfBirthPage;
     private final String PAGE_SHOULD_BE_OPENED = "Page should be opened";
+    private String day;
+    private String month;
 
     @DataProvider(name = "goalsDataProvider")
     public Object[][] goalsDataProvider() {
@@ -35,6 +37,7 @@ public class VerifySuccessfullyNebulaRegistrationTest extends BaseTest {
 
     @BeforeClass(alwaysRun = true)
     public HomePage openHomePage() {
+        createTestData();
         return homePage = new HomePage();
     }
 
@@ -63,16 +66,26 @@ public class VerifySuccessfullyNebulaRegistrationTest extends BaseTest {
     }
 
     @Test(dependsOnMethods = "verifyBirthChatPageIsOpened", alwaysRun = true)
-    public void verifyDayOfBirthPageOpened(){
+    public void verifyDayOfBirthPageOpened() {
         dateOfBirthPage = birthChartPage.clickNextButton();
-        new SwipeUtils().swipeToElement(By.xpath("//android.widget.EditText[@resource-id='android:id/numberpicker_input' and @text='Aug']"), 12);
-        System.out.println("end");
+        dateOfBirthPage.selectMonth(month);
+        dateOfBirthPage.selectDay(day);
+        Arrays.asList(day, month).forEach(value -> soft.assertTrue(dateOfBirthPage.isDateValueSetInPickerWheel(value),
+                String.format("'%s' value should be present and set", value)));
     }
+
 
     @AfterMethod(alwaysRun = true)
     private void afterMethodActions(Method method) {
         if (method.getName().equalsIgnoreCase("verifyHomePageIsOpened")) {
             goalsPage = homePage.openGoalsPage();
         }
+    }
+
+    private void createTestData() {
+        Date date = FAKER.date().birthday();
+        DateFormatUtils dateFormatUtils = new DateFormatUtils();
+        day = dateFormatUtils.formatDayDate(date);
+        month = dateFormatUtils.formatMonthDate(date);
     }
 }

@@ -30,7 +30,7 @@ public class DriverManager {
     }
 
     @AfterClass(alwaysRun = true)
-    public void tearDown() {
+    public static void tearDown() {
         if (driver != null) {
             driver.quit();
         }
