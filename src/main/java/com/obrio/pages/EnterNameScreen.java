@@ -8,4 +8,6 @@ public class EnterNameScreen extends BaseScreen {
     protected void waitUntilScreenIsLoaded(WebElement element) {
         super.waitUntilScreenIsLoaded(element);
     }
+
+
 }

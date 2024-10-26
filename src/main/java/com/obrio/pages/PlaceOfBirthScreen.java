@@ -29,8 +29,7 @@ public class PlaceOfBirthScreen extends BaseScreen {
 
     public void setPlaceOfBirth(String placeOfBirth) {
         placeOfBirthInput().click();
-        ElementUtils.waitUntil(() -> isElementEnable(placeOfBirthInput), 3);
-        placeOfBirthInput().sendKeys(placeOfBirth);
+        placeOfBirthInput().type(placeOfBirth);
         placeOfBirthInput().click();
     }
 

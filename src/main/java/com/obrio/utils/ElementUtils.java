@@ -39,9 +39,23 @@ public class ElementUtils {
         }
     }
 
+    public static boolean isClickable(WebElement element) {
+        try {
+            getWebDriverWait();
+            return true;
+        } catch (Exception ignored) {
+            return false;
+        }
+    }
+
     public static void waitUntil(Supplier<Boolean> condition, int duration) {
         Function<WebDriver, Boolean> conditionToBeTrue = (WebDriver d) -> condition.get().equals(Boolean.TRUE);
         getWebDriverWait(duration).until(conditionToBeTrue);
+    }
+
+    public static void waitUntil(Supplier<Boolean> condition) {
+        Function<WebDriver, Boolean> conditionToBeTrue = (WebDriver d) -> condition.get().equals(Boolean.TRUE);
+        getWebDriverWait().until(conditionToBeTrue);
     }
 
     public void tryWaitUntil(Supplier<Boolean> condition, int duration) {

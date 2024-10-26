@@ -24,8 +24,7 @@ public class GenderScreen extends BaseScreen {
     public boolean isGenderTileShown(Gender gender) {
         String locator = String.format(GENDER_TILE_LOCATOR, gender.getValue());
         WebElement tile = getDriverInstance().findElement(By.xpath(locator));
-        webElementUtils().tryWaitUntil(tile::isDisplayed, 2);
-        return isElementShown(getDriverInstance().findElement(By.xpath(locator)));
+        return isElementShown(tile);
 
     }
 

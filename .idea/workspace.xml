@@ -5,13 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="41968955-42e9-4875-84d9-ed7329e088f7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/obrio/data/Gender.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/obrio/pages/EnterNameScreen.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/obrio/pages/GenderScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/pages/GoalsScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/pages/GoalsScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/pages/PalmReadingScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/pages/PalmReadingScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/obrio/tests/VerifySuccessfullyNebulaRegistrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/obrio/tests/VerifySuccessfullyNebulaRegistrationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/elements/Input.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/elements/Input.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/pages/EnterNameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/pages/EnterNameScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/pages/GenderScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/pages/GenderScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/pages/PlaceOfBirthScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/pages/PlaceOfBirthScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/utils/ElementUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/utils/ElementUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/utils/WaitUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/utils/WaitUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +48,7 @@
     "TestNG.Testing.executor": "Debug",
     "TestNG.Testing.test (1).executor": "Debug",
     "TestNG.Testing.test.executor": "Debug",
-    "TestNG.VerifySuccessfullyNebulaRegistrationTest.executor": "Debug",
+    "TestNG.VerifySuccessfullyNebulaRegistrationTest.executor": "Run",
     "TestNG.VerifySuccessfullyNebulaRegistrationTest.verifyDayOfBirthPageOpened.executor": "Run",
     "TestNG.VerifySuccessfullyNebulaRegistrationTest.verifyHomePageIsOpened.executor": "Debug",
     "git-widget-placeholder": "main",
@@ -192,7 +192,7 @@
       <workItem from="1729743028864" duration="10000" />
       <workItem from="1729743094121" duration="43000" />
       <workItem from="1729743156732" duration="6553000" />
-      <workItem from="1729840529178" duration="51917000" />
+      <workItem from="1729840529178" duration="53082000" />
     </task>
     <servers />
   </component>
@@ -206,16 +206,6 @@
           <url>file://$PROJECT_DIR$/src/test/java/com/obrio/tests/VerifySuccessfullyNebulaRegistrationTest.java</url>
           <line>121</line>
           <option name="timeStamp" value="55" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/obrio/pages/GenderScreen.java</url>
-          <line>27</line>
-          <option name="timeStamp" value="60" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/obrio/pages/GenderScreen.java</url>
-          <line>25</line>
-          <option name="timeStamp" value="62" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -1,6 +1,10 @@
 package com.obrio.elements;
 
+import com.obrio.utils.ElementUtils;
 import org.openqa.selenium.WebElement;
+
+import static com.obrio.utils.ElementUtils.isClickable;
+import static com.obrio.utils.ElementUtils.waitUntil;
 
 public class Input extends AbstractUIElements implements IInput {
     public Input(WebElement element, String elementName) {
@@ -14,6 +18,13 @@ public class Input extends AbstractUIElements implements IInput {
     @Override
     public WebElement getWrappedElement() {
         return super.getElement();
+    }
+
+    public void type(String text) {
+        waitUntil(()-> getWrappedElement().isDisplayed(), 2);
+        waitUntil(() -> isClickable(getWrappedElement()));
+        getWrappedElement().click();
+        sendKeys(text);
     }
 
     @Override
