@@ -5,7 +5,7 @@ import com.obrio.elements.IButton;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
 
-public class HomePage extends BasePage {
+public class HomeScreen extends BaseScreen {
 
     @AndroidFindBy(id = "genesis.nebula:id/gradient")
     private WebElement nebulaLabel;
@@ -18,16 +18,16 @@ public class HomePage extends BasePage {
     }
 
     @Override
-    protected void waitUntilPageIsLoaded(WebElement element) {
-        super.waitUntilPageIsLoaded(nebulaLabel);
+    protected void waitUntilScreenIsLoaded(WebElement element) {
+        super.waitUntilScreenIsLoaded(nebulaLabel);
     }
 
     public boolean isHomePageOpened(){
         return nebulaLabel.isDisplayed();
     }
 
-    public GoalsPage clickGetStartedButtonAndOpenGoalsPage() {
+    public GoalsScreen clickGetStartedButtonAndOpenGoalsScreen() {
         getStartedButton().click();
-        return new GoalsPage();
+        return new GoalsScreen();
     }
 }

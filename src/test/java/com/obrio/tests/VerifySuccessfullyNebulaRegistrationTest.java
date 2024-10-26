@@ -15,15 +15,15 @@ import static com.obrio.data.GoalValues.*;
 
 public class VerifySuccessfullyNebulaRegistrationTest extends BaseTest {
 
-    private HomePage homePage;
-    private GoalsPage goalsPage;
-    private YourGoalsPage yourGoalsPage;
-    private BirthChartPage birthChartPage;
-    private DateOfBirthPage dateOfBirthPage;
-    private TimeOfBirthPage timeOfBirthPage;
-    private PlaceOfBirthPage placeOfBirthPage;
-    private PalmReadingPage palmReadingPage;
     private final String SCREEN_SHOULD_BE_OPENED = "Screen should be opened";
+    private HomeScreen homeScreen;
+    private GoalsScreen goalsScreen;
+    private YourGoalsScreen yourGoalsScreen;
+    private BirthChartScreen birthChartScreen;
+    private DateOfBirthScreen dateOfBirthScreen;
+    private TimeOfBirthScreen timeOfBirthScreen;
+    private PlaceOfBirthScreen placeOfScreen;
+    private PalmReadingScreen palmReadingScreen;
     private String day;
     private String month;
     private String placeOfBirth;
@@ -39,50 +39,51 @@ public class VerifySuccessfullyNebulaRegistrationTest extends BaseTest {
     }
 
     @BeforeClass(alwaysRun = true)
-    public HomePage openHomePage() {
+    public HomeScreen openHomePage() {
         createTestData();
-        return homePage = new HomePage();
+        return homeScreen = new HomeScreen();
     }
 
     @Test
-    public void verifyHomePageIsOpened() {
-        Assert.assertTrue(homePage.isHomePageOpened(), SCREEN_SHOULD_BE_OPENED);
+    public void verifyHomeScreenIsOpened() {
+        Assert.assertTrue(homeScreen.isHomePageOpened(), SCREEN_SHOULD_BE_OPENED);
     }
 
-    @Test(dataProvider = "goalsDataProvider", dependsOnMethods = "verifyHomePageIsOpened", alwaysRun = true)
-    public void verifyGoalPageIsOpenedAndGoalsAreSelected(String goal) {
-        goalsPage.selectGoals(goal);
-        soft.assertTrue(goalsPage.isGoalSelected(goal), String.format("'%s' goal should be selected", goal));
+    @Test(dataProvider = "goalsDataProvider", dependsOnMethods = "verifyHomeScreenIsOpened", alwaysRun = true)
+    public void verifyGoalScreenIsOpenedAndGoalsAreSelected(String goal) {
+        goalsScreen.selectGoals(goal);
+        soft.assertTrue(goalsScreen.isGoalSelected(goal), String.format("'%s' goal should be selected", goal));
         soft.assertAll();
     }
 
-    @Test(dependsOnMethods = "verifyGoalPageIsOpenedAndGoalsAreSelected", alwaysRun = true)
-    public void verifyYourGoalsPageIsOpened() {
-        yourGoalsPage = goalsPage.clickNextButtonAndOpenYourGoalsPage();
-        Assert.assertTrue(yourGoalsPage.isYourGoalPageOpened(), SCREEN_SHOULD_BE_OPENED);
+    @Test(dependsOnMethods = "verifyGoalScreenIsOpenedAndGoalsAreSelected", alwaysRun = true)
+    public void verifyYourGoalsScreenIsOpened() {
+        yourGoalsScreen = goalsScreen.clickNextButtonAndOpenYourGoalsScreen();
+        Assert.assertTrue(yourGoalsScreen.isYourGoalPageOpened(), SCREEN_SHOULD_BE_OPENED);
     }
 
-    @Test(dependsOnMethods = "verifyYourGoalsPageIsOpened", alwaysRun = true)
-    public void verifyBirthChatPageIsOpened() {
-        birthChartPage = yourGoalsPage.clickNextButtonAndOpenBirthChartPage();
-        Assert.assertTrue(birthChartPage.isBirthChartPageOpened(), SCREEN_SHOULD_BE_OPENED);
+    @Test(dependsOnMethods = "verifyYourGoalsScreenIsOpened", alwaysRun = true)
+    public void verifyBirthChatScreenIsOpened() {
+        birthChartScreen = yourGoalsScreen.clickNextButtonAndOpenBirthChartScreen();
+        Assert.assertTrue(birthChartScreen.isBirthChartPageOpened(), SCREEN_SHOULD_BE_OPENED);
     }
 
-    @Test(dependsOnMethods = "verifyBirthChatPageIsOpened", alwaysRun = true)
-    public void verifyDayOfBirthPageOpenedAndDateIsSet() {
-        dateOfBirthPage = birthChartPage.clickNextButtonAndOpenDateOfBirthPage();
+    @Test(dependsOnMethods = "verifyBirthChatScreenIsOpened", alwaysRun = true)
+    public void verifyDayOfBirthScreenOpenedAndDateIsSet() {
+        dateOfBirthScreen = birthChartScreen.clickNextButtonAndOpenDateOfBirthScreen();
 //        dateOfBirthPage.selectMonth(month);
 //        dateOfBirthPage.selectDay(day);
 //        Arrays.asList(day, month).forEach(value -> soft.assertTrue(dateOfBirthPage.isDateValueSetInPickerWheel(value),
 //                String.format("'%s' value should be present and set", value)));
     }
 
-    @Test(dependsOnMethods = "verifyDayOfBirthPageOpenedAndDateIsSet", alwaysRun = true)
+    @Test(dependsOnMethods = "verifyDayOfBirthScreenOpenedAndDateIsSet", alwaysRun = true)
     public void verifyInfoMessageAppearedAfterPressingIDontKnowButton() {
-        String expectedInfoMessage = "We need the time of your birth to make astrological predictions more accurate. You can come back and add it when you figure it out.";
-        timeOfBirthPage = dateOfBirthPage.clickNextButtonAndOpenTimeOfBirthPage()
+        String expectedInfoMessage = "We need the time of your birth to make astrological predictions more accurate." +
+                " You can come back and add it when you figure it out.";
+        timeOfBirthScreen = dateOfBirthScreen.clickNextButtonAndOpenTimeOfBirthScreen()
                 .tapIDontKnowButton();
-        String actualMessage = timeOfBirthPage
+        String actualMessage = timeOfBirthScreen
                 .getTextFromInfoMessage();
         Assert.assertEquals(actualMessage, expectedInfoMessage,
                 String.format("'%s' actual message is not equal to '%s' expected", actualMessage, expectedInfoMessage));
@@ -90,22 +91,22 @@ public class VerifySuccessfullyNebulaRegistrationTest extends BaseTest {
 
     @Test(dependsOnMethods = "verifyInfoMessageAppearedAfterPressingIDontKnowButton", alwaysRun = true)
     public void verifyPlaceOfBirthValueIsSet(){
-        placeOfBirthPage = timeOfBirthPage.clickSkipButtonAndOpenPlaceOfBirthPage();
-        placeOfBirthPage.setPlaceOfBirth(placeOfBirth);
-        Assert.assertTrue(placeOfBirthPage.isSearchedPlacePresentInSearchResult(placeOfBirth),
+        placeOfScreen = timeOfBirthScreen.clickSkipButtonAndOpenPlaceOfBirthScreen();
+        placeOfScreen.setPlaceOfBirth(placeOfBirth);
+        Assert.assertTrue(placeOfScreen.isSearchedPlacePresentInSearchResult(placeOfBirth),
                 String.format("'%s' city should be present in search result", placeOfBirth));
     }
 
     @Test
     public void verifyPlaceOfBirthSelectedAndPalmScreenOpened(){
-        palmReadingPage = placeOfBirthPage.confirmPlaceOfBirthAndOpenPalmReadingScreen(placeOfBirth);
+        palmReadingScreen = placeOfScreen.confirmPlaceOfBirthAndOpenPalmReadingScreen(placeOfBirth);
         System.out.println("end");
     }
 
     @AfterMethod(alwaysRun = true)
     private void afterMethodActions(Method method) {
-        if (method.getName().equalsIgnoreCase("verifyHomePageIsOpened")) {
-            goalsPage = homePage.clickGetStartedButtonAndOpenGoalsPage();
+        if (method.getName().equalsIgnoreCase("verifyHomeScreenIsOpened")) {
+            goalsScreen = homeScreen.clickGetStartedButtonAndOpenGoalsScreen();
         }
     }
 

@@ -5,7 +5,7 @@ import com.obrio.elements.IButton;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
 
-public class BirthChartPage extends BasePage {
+public class BirthChartScreen extends BaseScreen {
 
     @AndroidFindBy(id = "genesis.nebula:id/toolbarBackTitleText")
     private WebElement birthChartTitle;
@@ -19,16 +19,16 @@ public class BirthChartPage extends BasePage {
 
 
     @Override
-    protected void waitUntilPageIsLoaded(WebElement element) {
-        super.waitUntilPageIsLoaded(birthChartTitle);
+    protected void waitUntilScreenIsLoaded(WebElement element) {
+        super.waitUntilScreenIsLoaded(birthChartTitle);
     }
 
     public boolean isBirthChartPageOpened() {
         return birthChartTitle.isDisplayed();
     }
 
-    public DateOfBirthPage clickNextButtonAndOpenDateOfBirthPage() {
+    public DateOfBirthScreen clickNextButtonAndOpenDateOfBirthScreen() {
         nextButton().click();
-        return new DateOfBirthPage();
+        return new DateOfBirthScreen();
     }
 }

@@ -9,7 +9,7 @@ import org.openqa.selenium.WebElement;
 
 import static com.obrio.utils.SwipeUtils.*;
 
-public class DateOfBirthPage extends BasePage {
+public class DateOfBirthScreen extends BaseScreen {
 
     private static final String DATE_PICKER_WHEEL = "//android.widget.EditText[@resource-id=\"android:id/numberpicker_input\" and @text=\"%s\"]";
 
@@ -24,8 +24,8 @@ public class DateOfBirthPage extends BasePage {
     }
 
     @Override
-    protected void waitUntilPageIsLoaded(WebElement element) {
-        super.waitUntilPageIsLoaded(birthDateLabel);
+    protected void waitUntilScreenIsLoaded(WebElement element) {
+        super.waitUntilScreenIsLoaded(birthDateLabel);
     }
 
     public void selectMonth(String month) {
@@ -45,8 +45,8 @@ public class DateOfBirthPage extends BasePage {
         return DriverManager.getDriverInstance().findElement(By.xpath(String.format(DATE_PICKER_WHEEL, value))).isDisplayed();
     }
 
-    public TimeOfBirthPage clickNextButtonAndOpenTimeOfBirthPage() {
+    public TimeOfBirthScreen clickNextButtonAndOpenTimeOfBirthScreen() {
         nextButton().click();
-        return new TimeOfBirthPage();
+        return new TimeOfBirthScreen();
     }
 }

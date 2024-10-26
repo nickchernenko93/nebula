@@ -10,17 +10,17 @@ import java.util.function.Supplier;
 
 import static com.obrio.utils.WaitUtils.getWebDriverWait;
 
-public class WebElementUtils {
-    private static WebElementUtils webElementUtils;
+public class ElementUtils {
+    private static ElementUtils elementUtils;
 
-    private WebElementUtils() {
+    private ElementUtils() {
     }
 
-    public static WebElementUtils getInstance() {
-        if (webElementUtils == null) {
-            webElementUtils = new WebElementUtils();
+    public static ElementUtils getInstance() {
+        if (elementUtils == null) {
+            elementUtils = new ElementUtils();
         }
-        return webElementUtils;
+        return elementUtils;
     }
 
     public static boolean isElementShown(WebElement element) {

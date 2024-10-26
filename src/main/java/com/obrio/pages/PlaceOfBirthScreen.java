@@ -1,7 +1,7 @@
 package com.obrio.pages;
 
 import com.obrio.elements.Input;
-import com.obrio.utils.WebElementUtils;
+import com.obrio.utils.ElementUtils;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -9,9 +9,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import static com.obrio.drivers.DriverManager.getDriverInstance;
 import static com.obrio.utils.WaitUtils.getWebDriverWait;
-import static com.obrio.utils.WebElementUtils.isElementEnable;
+import static com.obrio.utils.ElementUtils.isElementEnable;
 
-public class PlaceOfBirthPage extends BasePage {
+public class PlaceOfBirthScreen extends BaseScreen {
 
     private static final String SEARCHED_VALUE_LOCATOR = "//android.widget.TextView[contains(@text, '%s')]/parent::android.view.ViewGroup";
 
@@ -19,27 +19,26 @@ public class PlaceOfBirthPage extends BasePage {
     private WebElement placeOfBirthInput;
 
     @Override
-    protected void waitUntilPageIsLoaded(WebElement element) {
-        super.waitUntilPageIsLoaded(placeOfBirthInput);
+    protected void waitUntilScreenIsLoaded(WebElement element) {
+        super.waitUntilScreenIsLoaded(placeOfBirthInput);
     }
 
     public Input placeOfBirthInput() {
         return new Input(placeOfBirthInput, "'Place of birth' input");
     }
 
-    public PlaceOfBirthPage setPlaceOfBirth(String placeOfBirth) {
+    public void setPlaceOfBirth(String placeOfBirth) {
         placeOfBirthInput().click();
-        WebElementUtils.waitUntil(() -> isElementEnable(placeOfBirthInput), 3);
+        ElementUtils.waitUntil(() -> isElementEnable(placeOfBirthInput), 3);
         placeOfBirthInput().sendKeys(placeOfBirth);
         placeOfBirthInput().click();
-        return this;
     }
 
-    public PalmReadingPage confirmPlaceOfBirthAndOpenPalmReadingScreen(String placeOfBirth) {
+    public PalmReadingScreen confirmPlaceOfBirthAndOpenPalmReadingScreen(String placeOfBirth) {
         String locator = String.format(SEARCHED_VALUE_LOCATOR, placeOfBirth);
         getWebDriverWait(5).until(
                 ExpectedConditions.elementToBeClickable(By.xpath(locator))).click();
-        return new PalmReadingPage();
+        return new PalmReadingScreen();
     }
 
     public boolean isSearchedPlacePresentInSearchResult(String placeOfBirth) {

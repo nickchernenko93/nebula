@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import static com.obrio.drivers.DriverManager.getDriverInstance;
 import static com.obrio.utils.WaitUtils.getWebDriverWait;
 
-public class GoalsPage extends BasePage {
+public class GoalsScreen extends BaseScreen {
 
     private static final String GOALS_LOCATOR = "//android.widget.TextView[contains(@text, \"%s\")]" +
             "//following-sibling::android.widget.RadioButton[@resource-id=\"genesis.nebula:id/optionRadiobutton\"]";
@@ -34,13 +34,13 @@ public class GoalsPage extends BasePage {
                 ExpectedConditions.elementToBeSelected(By.xpath(String.format(GOALS_LOCATOR, (Object[]) goal))));
     }
 
-    public YourGoalsPage clickNextButtonAndOpenYourGoalsPage(){
+    public YourGoalsScreen clickNextButtonAndOpenYourGoalsScreen(){
         nextButton().click();
-        return new YourGoalsPage();
+        return new YourGoalsScreen();
     }
 
     @Override
-    protected void waitUntilPageIsLoaded(WebElement element) {
-        super.waitUntilPageIsLoaded(whatAreYourGoalsLabel);
+    protected void waitUntilScreenIsLoaded(WebElement element) {
+        super.waitUntilScreenIsLoaded(whatAreYourGoalsLabel);
     }
 }

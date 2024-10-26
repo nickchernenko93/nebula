@@ -1,7 +1,7 @@
 package com.obrio.pages;
 
 import com.obrio.drivers.DriverManager;
-import com.obrio.utils.WebElementUtils;
+import com.obrio.utils.ElementUtils;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
@@ -12,17 +12,17 @@ import org.openqa.selenium.support.ui.FluentWait;
 import java.time.Duration;
 import java.util.NoSuchElementException;
 
-public abstract class BasePage {
-    private WebElementUtils webElementUtils;
-    protected BasePage() {
+public abstract class BaseScreen {
+    private ElementUtils elementUtils;
+    protected BaseScreen() {
         PageFactory.initElements(new AppiumFieldDecorator(DriverManager.getDriverInstance()), this);
     }
 
-    protected WebElementUtils webElementUtils() {
-        return webElementUtils != null ? webElementUtils : (webElementUtils = WebElementUtils.getInstance());
+    protected ElementUtils webElementUtils() {
+        return elementUtils != null ? elementUtils : (elementUtils = ElementUtils.getInstance());
     }
 
-    protected void waitUntilPageIsLoaded(WebElement element) {
+    protected void waitUntilScreenIsLoaded(WebElement element) {
         WebDriver driver = DriverManager.getDriverInstance();
 
         FluentWait<WebDriver> wait = new FluentWait<>(driver)

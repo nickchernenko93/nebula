@@ -5,7 +5,7 @@ import com.obrio.elements.IButton;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
 
-public class YourGoalsPage extends BasePage {
+public class YourGoalsScreen extends BaseScreen {
 
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"genesis.nebula:id/onboardingGoalsPersonalTitleText\")")
     private WebElement gotItLabel;
@@ -18,16 +18,16 @@ public class YourGoalsPage extends BasePage {
     }
 
     @Override
-    protected void waitUntilPageIsLoaded(WebElement element) {
-        super.waitUntilPageIsLoaded(gotItLabel);
+    protected void waitUntilScreenIsLoaded(WebElement element) {
+        super.waitUntilScreenIsLoaded(gotItLabel);
     }
 
     public boolean isYourGoalPageOpened(){
         return gotItLabel.isDisplayed();
     }
 
-    public BirthChartPage clickNextButtonAndOpenBirthChartPage(){
+    public BirthChartScreen clickNextButtonAndOpenBirthChartScreen(){
         nextButton().click();
-        return new BirthChartPage();
+        return new BirthChartScreen();
     }
 }

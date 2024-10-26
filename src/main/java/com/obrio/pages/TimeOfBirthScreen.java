@@ -5,9 +5,9 @@ import com.obrio.elements.IButton;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
 
-import static com.obrio.utils.WebElementUtils.isElementShown;
+import static com.obrio.utils.ElementUtils.isElementShown;
 
-public class TimeOfBirthPage extends BasePage {
+public class TimeOfBirthScreen extends BaseScreen {
 
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"genesis.nebula:id/onboardingSkipButton\")")
     private WebElement iDontKnowButton;
@@ -23,8 +23,8 @@ public class TimeOfBirthPage extends BasePage {
 
 
     @Override
-    protected void waitUntilPageIsLoaded(WebElement element) {
-        super.waitUntilPageIsLoaded(timeOfBirthLabel);
+    protected void waitUntilScreenIsLoaded(WebElement element) {
+        super.waitUntilScreenIsLoaded(timeOfBirthLabel);
     }
 
     public IButton iDontKnowButton() {
@@ -35,7 +35,7 @@ public class TimeOfBirthPage extends BasePage {
         return new Button(skipButton, "'Skip' button");
     }
 
-    public TimeOfBirthPage tapIDontKnowButton() {
+    public TimeOfBirthScreen tapIDontKnowButton() {
         iDontKnowButton().click();
         return this;
     }
@@ -45,8 +45,8 @@ public class TimeOfBirthPage extends BasePage {
         return infoMessage.getText();
     }
 
-    public PlaceOfBirthPage clickSkipButtonAndOpenPlaceOfBirthPage() {
+    public PlaceOfBirthScreen clickSkipButtonAndOpenPlaceOfBirthScreen() {
         skipButton().click();
-        return new PlaceOfBirthPage();
+        return new PlaceOfBirthScreen();
     }
 }
