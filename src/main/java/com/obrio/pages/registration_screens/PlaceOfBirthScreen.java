@@ -1,7 +1,7 @@
-package com.obrio.pages;
+package com.obrio.pages.registration_screens;
 
 import com.obrio.elements.Input;
-import com.obrio.utils.ElementUtils;
+import com.obrio.pages.BaseScreen;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -9,7 +9,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import static com.obrio.drivers.DriverManager.getDriverInstance;
 import static com.obrio.utils.WaitUtils.getWebDriverWait;
-import static com.obrio.utils.ElementUtils.isElementEnable;
 
 public class PlaceOfBirthScreen extends BaseScreen {
 

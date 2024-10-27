@@ -1,8 +1,10 @@
-package com.obrio.pages;
+package com.obrio.pages.registration_screens;
 
 import com.obrio.elements.Button;
 import com.obrio.elements.IButton;
 import com.obrio.elements.Input;
+import com.obrio.pages.BaseScreen;
+import com.obrio.pages.HomeScreen;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
 
@@ -48,11 +50,15 @@ public class SignUpScreen extends BaseScreen {
     }
 
     public boolean isErrorMessageShown() {
-        elementUtils().tryWaitUntil(() -> errorMessagePopUp.isDisplayed(), 3);
-        return errorMessagePopUp.isDisplayed();
+        try {
+            waitUtils().tryWaitUntil(() -> errorMessagePopUp.isDisplayed(), 3);
+            return errorMessagePopUp.isDisplayed();
+        } catch (Exception ignored) {
+            return false;
+        }
     }
 
-    public HoroscopeScreen fillInDataForRegistrationAndExpectHoroscopeScreen(String email, String password) {
+    public HomeScreen fillInDataForRegistrationAndExpectHoroscopeScreen(String email, String password) {
         emailInput().type(email);
         passwordInput().type(password);
         confirmPasswordInput().type(password);
@@ -60,7 +66,7 @@ public class SignUpScreen extends BaseScreen {
         if (isErrorMessageShown()) {
             okButton().click();
         }
-        return new HoroscopeScreen();
+        return new HomeScreen();
     }
 
 }

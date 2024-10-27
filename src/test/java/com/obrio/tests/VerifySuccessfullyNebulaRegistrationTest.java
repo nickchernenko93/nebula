@@ -1,7 +1,9 @@
 package com.obrio.tests;
 
 import com.obrio.data.ui.fields.SettingsFields;
-import com.obrio.pages.*;
+import com.obrio.pages.registration_screens.RegistrationHomeScreen;
+import com.obrio.pages.settings_screens.AccountSettingScreen;
+import com.obrio.pages.settings_screens.ProfileSettingScreen;
 import com.obrio.utils.DateFormatUtils;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -21,34 +23,6 @@ import static com.obrio.data.registration.RelationshipStatuses.SINGLE;
 
 public class VerifySuccessfullyNebulaRegistrationTest extends BaseTest {
 
-    private final String SCREEN_SHOULD_BE_OPENED = "Screen should be opened";
-    private final String BUTTON_SHOULD_BE_SHOWN = "Button should be shown";
-    private final String YES_OPTION = "YES";
-    private final String NO_OPTION = "NO";
-    private HomeScreen homeScreen;
-    private GoalsScreen goalsScreen;
-    private YourGoalsScreen yourGoalsScreen;
-    private BirthChartScreen birthChartScreen;
-    private DateOfBirthScreen dateOfBirthScreen;
-    private TimeOfBirthScreen timeOfBirthScreen;
-    private PlaceOfBirthScreen placeOfScreen;
-    private PalmReadingScreen palmReadingScreen;
-    private GenderScreen genderScreen;
-    private RelationshipStatusScreen relationshipStatusScreen;
-    private MotivationScreen motivationScreen;
-    private HoroscopeRemainderScreen horoscopeRemainderScreen;
-    private SocialMediaScreen socialMediaScreen;
-    private CreateAccountScreen createAccountScreen;
-    private SignUpScreen signUpScreen;
-    private HoroscopeScreen horoscopeScreen;
-    private ProfileSettingScreen settingScreen;
-    private String dayOfBirth;
-    private String monthOfBirth;
-    private String placeOfBirth;
-    private String name;
-    private String email;
-    private String password;
-
     @DataProvider(name = "goalsDataProvider")
     public Object[][] goalsDataProvider() {
         return new Object[][]{
@@ -60,19 +34,20 @@ public class VerifySuccessfullyNebulaRegistrationTest extends BaseTest {
     }
 
     @BeforeClass(alwaysRun = true)
-    public HomeScreen openHomeScreen() {
+    public RegistrationHomeScreen openHomeScreen() {
         createTestData();
-        return homeScreen = new HomeScreen();
+        return registrationHomeScreen = new RegistrationHomeScreen();
     }
 
     @Test
     public void verifyHomeScreenIsOpened() {
-        Assert.assertTrue(homeScreen.isHomeScreenOpened(), SCREEN_SHOULD_BE_OPENED);
+        Assert.assertTrue(registrationHomeScreen.isHomeScreenOpened(), SCREEN_SHOULD_BE_OPENED);
     }
 
     @Test(dataProvider = "goalsDataProvider", dependsOnMethods = "verifyHomeScreenIsOpened", alwaysRun = true)
     public void verifyGoalScreenIsOpenedAndGoalsAreSelected(String goal) {
         goalsScreen.selectGoals(goal);
+
         soft.assertTrue(goalsScreen.isGoalSelected(goal), String.format("'%s' goal should be selected", goal));
         soft.assertAll();
     }
@@ -86,17 +61,20 @@ public class VerifySuccessfullyNebulaRegistrationTest extends BaseTest {
     @Test(dependsOnMethods = "verifyYourGoalsScreenIsOpened", alwaysRun = true)
     public void verifyBirthChatScreenIsOpened() {
         birthChartScreen = yourGoalsScreen.clickNextButtonAndOpenBirthChartScreen();
+
         Assert.assertTrue(birthChartScreen.isBirthChartPageOpened(), SCREEN_SHOULD_BE_OPENED);
     }
 
     @Test(dependsOnMethods = "verifyBirthChatScreenIsOpened", alwaysRun = true)
     public void verifyDayOfBirthScreenOpenedAndDateIsSet() {
         dateOfBirthScreen = birthChartScreen.clickNextButtonAndOpenDateOfBirthScreen();
-//        dateOfBirthPage.selectMonth(month);
-//        dateOfBirthPage.selectDay(day);
-//        Arrays.asList(day, month).forEach(value -> soft.assertTrue(dateOfBirthPage.isDateValueSetInPickerWheel(value),
-//                String.format("'%s' value should be present and set", value)));
-//        soft.assertAll();
+        dateOfBirthScreen.selectMonth(monthOfBirth);
+        dateOfBirthScreen.selectDay(dayOfBirth);
+        dateOfBirthScreen.selectYear(String.valueOf(yearOfBirth));
+
+        Arrays.asList(dayOfBirth, monthOfBirth).forEach(value -> soft.assertTrue(dateOfBirthScreen.isDateValueSetInPickerWheel(value),
+                String.format("'%s' value should be present and set", value)));
+        soft.assertAll();
     }
 
     @Test(dependsOnMethods = "verifyDayOfBirthScreenOpenedAndDateIsSet", alwaysRun = true)
@@ -107,27 +85,31 @@ public class VerifySuccessfullyNebulaRegistrationTest extends BaseTest {
                 .tapIDontKnowButton();
         String actualMessage = timeOfBirthScreen
                 .getTextFromInfoMessage();
+
         Assert.assertEquals(actualMessage, expectedInfoMessage,
                 String.format("'%s' actual message is not equal to '%s' expected", actualMessage, expectedInfoMessage));
     }
 
     @Test(dependsOnMethods = "verifyInfoMessageAppearedAfterPressingIDontKnowButton", alwaysRun = true)
     public void verifyPlaceOfBirthValueIsSet() {
-        placeOfScreen = timeOfBirthScreen.clickSkipButtonAndOpenPlaceOfBirthScreen();
-        placeOfScreen.setPlaceOfBirth(placeOfBirth);
-        Assert.assertTrue(placeOfScreen.isSearchedPlacePresentInSearchResult(placeOfBirth),
+        placeOfBirthScreen = timeOfBirthScreen.clickSkipButtonAndOpenPlaceOfBirthScreen();
+        placeOfBirthScreen.setPlaceOfBirth(placeOfBirth);
+
+        Assert.assertTrue(placeOfBirthScreen.isSearchedPlacePresentInSearchResult(placeOfBirth),
                 String.format("'%s' city should be present in search result", placeOfBirth));
     }
 
     @Test(dependsOnMethods = "verifyPlaceOfBirthValueIsSet", alwaysRun = true)
     public void verifyPlaceOfBirthSelectedAndPalmScreenOpened() {
-        palmReadingScreen = placeOfScreen.confirmPlaceOfBirthAndOpenPalmReadingScreen(placeOfBirth);
+        palmReadingScreen = placeOfBirthScreen.confirmPlaceOfBirthAndOpenPalmReadingScreen(placeOfBirth);
+
         Assert.assertTrue(palmReadingScreen.isPalmReadingScreenOpened(), SCREEN_SHOULD_BE_OPENED);
     }
 
     @Test(dependsOnMethods = "verifyPlaceOfBirthSelectedAndPalmScreenOpened", alwaysRun = true)
     public void verifyGenderScreenOpenedAndGenderTilePresent() {
         genderScreen = palmReadingScreen.clickSkipButtonAndOpenGenderScreen();
+
         Arrays.asList(MALE, FEMALE, NON_BINARY).forEach(genders -> soft.assertTrue(genderScreen.isGenderTileShown(genders),
                 String.format("'%s' gender tile should be shown", genders.getValue())));
         soft.assertAll();
@@ -137,6 +119,7 @@ public class VerifySuccessfullyNebulaRegistrationTest extends BaseTest {
     public void verifyNameIsSetAndRelationshipScreenOpened() {
         relationshipStatusScreen = genderScreen.selectGenderAndOpenNameScreen(MALE)
                 .setNameAndOpenRelationshipStatusScreen(name);
+
         Assert.assertTrue(relationshipStatusScreen.isRelationshipScreenOpened(), SCREEN_SHOULD_BE_OPENED);
     }
 
@@ -144,11 +127,14 @@ public class VerifySuccessfullyNebulaRegistrationTest extends BaseTest {
     public void verifyRelationshipStatusAndInterestsSelectedAndMotivationScreenOpened() {
         motivationScreen = relationshipStatusScreen.selectRelationshipStatusAndOpenInterestsScreen(SINGLE)
                 .selectInterestsAndOpenMotivationScreen(MONEY.getValue(), LOVE.getValue());
+
         Assert.assertTrue(motivationScreen.isMotivationScreenOpened(), SCREEN_SHOULD_BE_OPENED);
     }
 
     @Test(dependsOnMethods = "verifyRelationshipStatusAndInterestsSelectedAndMotivationScreenOpened", alwaysRun = true)
     public void verifyInterestsSelectedAndHoroscopeRemainderScreenOpened() {
+        final String YES_OPTION = "YES";
+        final String NO_OPTION = "NO";
         horoscopeRemainderScreen = motivationScreen.selectOption(YES_OPTION)
                 .clickNextButton()
                 .selectOption(NO_OPTION)
@@ -156,6 +142,7 @@ public class VerifySuccessfullyNebulaRegistrationTest extends BaseTest {
                 .clickNextButton()
                 .selectOption(YES_OPTION)
                 .clickNextButtonAndOpenHoroscopeRemainderScreen();
+
         Assert.assertTrue(horoscopeRemainderScreen.isBellImageShown(), "Bell image should be shown");
     }
 
@@ -164,6 +151,7 @@ public class VerifySuccessfullyNebulaRegistrationTest extends BaseTest {
         socialMediaScreen = horoscopeRemainderScreen.clickSkipButtonAndOpenSocialMediaScreen();
         String nextButtonName = "NEXT";
         String skipButtonName = "SKIP";
+
         soft.assertFalse(socialMediaScreen.isButtonEnabled(nextButtonName),
                 String.format("'%s' button should be disabled", nextButtonName));
         soft.assertTrue(socialMediaScreen.isButtonEnabled(skipButtonName),
@@ -176,6 +164,8 @@ public class VerifySuccessfullyNebulaRegistrationTest extends BaseTest {
         createAccountScreen = socialMediaScreen.clickSkipButtonAndOpenReachYourGoalScreen()
                 .clickNextButtonAndOpenReviewsScreen()
                 .clickNextButtonAndOpenCreateAccountScreen();
+        final String BUTTON_SHOULD_BE_SHOWN = "Button should be shown";
+
         soft.assertTrue(createAccountScreen.isCreateAccountViaEmailButtonShown(), BUTTON_SHOULD_BE_SHOWN);
         soft.assertTrue(createAccountScreen.isCreateAccountViaGoogleButtonShown(), BUTTON_SHOULD_BE_SHOWN);
         soft.assertAll();
@@ -183,15 +173,17 @@ public class VerifySuccessfullyNebulaRegistrationTest extends BaseTest {
 
     @Test(dependsOnMethods = "verifyCreateAccountScreenOpenedAndSignInViaEmailAndViaGoogleButtonsPresent", alwaysRun = true)
     public void verifyEmailAndPasswordSetAndHoroscopeScreenOpened() {
-        horoscopeScreen = createAccountScreen.clickCreateAccountViaEmailButtonAndOpenSignUpScreen()
+        homeScreen = createAccountScreen.clickCreateAccountViaEmailButtonAndOpenSignUpScreen()
                 .fillInDataForRegistrationAndExpectHoroscopeScreen(email, password);
-        Assert.assertTrue(horoscopeScreen.isHoroscopeScreenOpened(), SCREEN_SHOULD_BE_OPENED);
+
+        Assert.assertTrue(homeScreen.isHoroscopeScreenOpened(), SCREEN_SHOULD_BE_OPENED);
     }
 
     @Test(dependsOnMethods = "verifyEmailAndPasswordSetAndHoroscopeScreenOpened", alwaysRun = true)
     public void verifyProfileSettingsFieldHasCorrectValuesAfterRegistration() {
-        settingScreen = horoscopeScreen.openSettings()
+        settingScreen = homeScreen.openSettings()
                 .openNeededSettingScreen("My Profile", ProfileSettingScreen::new);
+
         soft.assertEquals(settingScreen.getValueFromField(SettingsFields.NAME), name);
         soft.assertEquals(settingScreen.getValueFromField(SettingsFields.GENDER), MALE.getValue());
         soft.assertEquals(settingScreen.getValueFromField(SettingsFields.PLACE_OF_BIRTH), placeOfBirth);
@@ -202,6 +194,7 @@ public class VerifySuccessfullyNebulaRegistrationTest extends BaseTest {
     @Test(dependsOnMethods = "verifyProfileSettingsFieldHasCorrectValuesAfterRegistration", alwaysRun = true)
     public void verifyAccountFieldValuesHasCorrectValuesAndUserIdFieldPopulatedAfterRegistration() {
         settingScreen.closeSettingAndOpenNeededSetting("Account", AccountSettingScreen::new);
+
         soft.assertEquals(settingScreen.getValueFromField(SettingsFields.EMAIL), email);
         soft.assertEquals(settingScreen.getValueFromField(SettingsFields.LOGIN_METHOD), email);
         soft.assertFalse(settingScreen.getValueFromField(SettingsFields.USER_ID).isEmpty());
@@ -211,7 +204,7 @@ public class VerifySuccessfullyNebulaRegistrationTest extends BaseTest {
     @AfterMethod(alwaysRun = true)
     private void afterMethodActions(Method method) {
         if (method.getName().equalsIgnoreCase("verifyHomeScreenIsOpened")) {
-            goalsScreen = homeScreen.clickGetStartedButtonAndOpenGoalsScreen();
+            goalsScreen = registrationHomeScreen.clickGetStartedButtonAndOpenGoalsScreen();
         }
     }
 
@@ -220,7 +213,8 @@ public class VerifySuccessfullyNebulaRegistrationTest extends BaseTest {
         DateFormatUtils dateFormatUtils = new DateFormatUtils();
         dayOfBirth = dateFormatUtils.formatDayDate(date);
         monthOfBirth = dateFormatUtils.formatMonthDate(date);
-        placeOfBirth = "New York";
+        yearOfBirth = FAKER.number().numberBetween(1990, 1980);
+        placeOfBirth = FAKER.address().city();
         name = FAKER.name().fullName();
         email = FAKER.internet().emailAddress();
         password = FAKER.internet().password(8, 12, true, true);

@@ -13,7 +13,7 @@ import java.util.Properties;
 
 public class DriverManager {
 
-    private DriverManager(){
+    private DriverManager() {
 
     }
 

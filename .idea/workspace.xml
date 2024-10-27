@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="41968955-42e9-4875-84d9-ed7329e088f7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/pages/HoroscopeScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/pages/HoroscopeScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/pages/SignUpScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/pages/SignUpScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/utils/WaitUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/utils/WaitUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/obrio/tests/VerifySuccessfullyNebulaRegistrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/obrio/tests/VerifySuccessfullyNebulaRegistrationTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="41968955-42e9-4875-84d9-ed7329e088f7" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -196,7 +190,7 @@
       <workItem from="1729743028864" duration="10000" />
       <workItem from="1729743094121" duration="43000" />
       <workItem from="1729743156732" duration="6553000" />
-      <workItem from="1729840529178" duration="77793000" />
+      <workItem from="1729840529178" duration="78801000" />
     </task>
     <servers />
   </component>
@@ -208,13 +202,8 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/com/obrio/tests/VerifySuccessfullyNebulaRegistrationTest.java</url>
-          <line>190</line>
+          <line>192</line>
           <option name="timeStamp" value="83" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/obrio/tests/VerifySuccessfullyNebulaRegistrationTest.java</url>
-          <line>191</line>
-          <option name="timeStamp" value="84" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/obrio/pages/SignUpScreen.java</url>

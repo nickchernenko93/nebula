@@ -1,6 +1,7 @@
 package com.obrio.data.ui.fields;
 
 public enum SettingsFields {
+
     NAME("Name"),
     DATE_OF_BIRTH("Date of Birth"),
     PLACE_OF_BIRTH("Place of Birth"),
@@ -19,4 +20,4 @@ public enum SettingsFields {
     public String getValue() {
         return value;
     }
-    }
+}

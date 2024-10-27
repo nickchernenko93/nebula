@@ -17,7 +17,7 @@ public class DateFormatUtils {
         return monthFormat.format(date);
     }
 
-    public  String formatYearDate(Date date) {
+    public String formatYearDate(Date date) {
         return yearFormat.format(date);
     }
 }

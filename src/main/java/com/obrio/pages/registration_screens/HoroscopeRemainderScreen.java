@@ -1,7 +1,8 @@
-package com.obrio.pages;
+package com.obrio.pages.registration_screens;
 
 import com.obrio.elements.Button;
 import com.obrio.elements.IButton;
+import com.obrio.pages.BaseScreen;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
 
@@ -24,12 +25,12 @@ public class HoroscopeRemainderScreen extends BaseScreen {
         super.waitUntilScreenIsLoaded(bellImage);
     }
 
-    public boolean isBellImageShown(){
+    public boolean isBellImageShown() {
         return isElementShown(bellImage);
     }
 
-    public SocialMediaScreen clickSkipButtonAndOpenSocialMediaScreen(){
-        elementUtils().tryWaitUntil(() -> skipButton().isDisplayed());
+    public SocialMediaScreen clickSkipButtonAndOpenSocialMediaScreen() {
+        waitUtils().tryWaitUntil(() -> skipButton().isDisplayed());
         skipButton().click();
         return new SocialMediaScreen();
     }

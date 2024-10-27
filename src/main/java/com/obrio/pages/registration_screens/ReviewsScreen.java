@@ -1,11 +1,12 @@
-package com.obrio.pages;
+package com.obrio.pages.registration_screens;
 
 import com.obrio.elements.Button;
 import com.obrio.elements.IButton;
+import com.obrio.pages.BaseScreen;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
 
-public class ReachYourGoalScreen extends BaseScreen {
+public class ReviewsScreen extends BaseScreen {
 
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"genesis.nebula:id/primaryButton\")")
     private WebElement nextButton;
@@ -14,9 +15,9 @@ public class ReachYourGoalScreen extends BaseScreen {
         return new Button(nextButton, "'Next' button");
     }
 
-    public ReviewsScreen clickNextButtonAndOpenReviewsScreen() {
+    public CreateAccountScreen clickNextButtonAndOpenCreateAccountScreen() {
         nextButton.click();
-        return new ReviewsScreen();
+        return new CreateAccountScreen();
     }
 
     @Override

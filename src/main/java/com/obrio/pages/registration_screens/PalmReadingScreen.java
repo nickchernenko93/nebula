@@ -1,7 +1,8 @@
-package com.obrio.pages;
+package com.obrio.pages.registration_screens;
 
 import com.obrio.elements.Button;
 import com.obrio.elements.IButton;
+import com.obrio.pages.BaseScreen;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
 

@@ -1,7 +1,8 @@
-package com.obrio.pages;
+package com.obrio.pages.registration_screens;
 
 import com.obrio.elements.Button;
 import com.obrio.elements.IButton;
+import com.obrio.pages.BaseScreen;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -27,13 +28,13 @@ public class MotivationScreen extends BaseScreen {
     }
 
     public MotivationScreen clickNextButton() {
-        elementUtils().tryWaitUntil(() -> nextButton().isDisplayed());
+        waitUtils().tryWaitUntil(() -> nextButton().isDisplayed());
         nextButton.click();
         return this;
     }
 
     public HoroscopeRemainderScreen clickNextButtonAndOpenHoroscopeRemainderScreen() {
-        elementUtils().tryWaitUntil(() -> nextButton().isDisplayed());
+        waitUtils().tryWaitUntil(() -> nextButton().isDisplayed());
         nextButton().click();
         return new HoroscopeRemainderScreen();
     }
@@ -41,7 +42,7 @@ public class MotivationScreen extends BaseScreen {
     public MotivationScreen selectOption(String option) {
         String locator = String.format("//android.widget.Button[@text='%s']", option);
         WebElement element = getDriverInstance().findElement(By.xpath(locator));
-        elementUtils().tryWaitUntil(element::isDisplayed);
+        waitUtils().tryWaitUntil(element::isDisplayed);
         element.click();
         return this;
     }

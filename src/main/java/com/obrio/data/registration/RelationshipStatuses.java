@@ -9,6 +9,7 @@ public enum RelationshipStatuses {
     RelationshipStatuses(String value) {
         this.value = value;
     }
+
     public String getValue() {
         return value;
     }

@@ -1,8 +1,8 @@
-package com.obrio.pages;
+package com.obrio.pages.registration_screens;
 
 import com.obrio.elements.Button;
 import com.obrio.elements.IButton;
-import com.obrio.utils.ElementUtils;
+import com.obrio.pages.BaseScreen;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
 
@@ -35,7 +35,7 @@ public class CreateAccountScreen extends BaseScreen {
         return isElementShown(createAccountViaEmailButton().getWrappedElement());
     }
 
-    public SignUpScreen clickCreateAccountViaEmailButtonAndOpenSignUpScreen(){
+    public SignUpScreen clickCreateAccountViaEmailButtonAndOpenSignUpScreen() {
         createAccountViaEmailButton().click();
         return new SignUpScreen();
     }

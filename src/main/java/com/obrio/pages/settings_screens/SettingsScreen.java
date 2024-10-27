@@ -1,7 +1,8 @@
-package com.obrio.pages;
+package com.obrio.pages.settings_screens;
 
 import com.obrio.elements.Button;
 import com.obrio.elements.IButton;
+import com.obrio.pages.BaseScreen;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -10,7 +11,7 @@ import java.util.function.Supplier;
 
 import static com.obrio.drivers.DriverManager.getDriverInstance;
 
-public class GeneralSettingsScreen extends BaseScreen {
+public class SettingsScreen extends BaseScreen {
 
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"genesis.nebula:id/toolbarCloseTitleText\")")
     private WebElement settingsScreenLabel;
