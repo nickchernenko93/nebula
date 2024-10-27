@@ -1,7 +1,8 @@
-package com.obrio.pages;
+package com.obrio.pages.registration_screens;
 
 import com.obrio.elements.Button;
 import com.obrio.elements.IButton;
+import com.obrio.pages.BaseScreen;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -27,6 +28,7 @@ public class InterestsScreen extends BaseScreen {
 
     protected void selectInterest(String interest) {
         String locator = String.format("//android.widget.TextView[@text=\"%s\"]/parent::android.widget.FrameLayout", interest);
+        waitUtils().tryWaitUntil(() -> getDriverInstance().findElement(By.xpath(locator)).isEnabled());
         getDriverInstance().findElement(By.xpath(locator)).click();
     }
 

@@ -1,6 +1,7 @@
-package com.obrio.data;
+package com.obrio.data.registration;
 
 public enum RelationshipStatuses {
+
     SINGLE("Single"),
     ENGAGED("Engaged");
 
@@ -9,8 +10,8 @@ public enum RelationshipStatuses {
     RelationshipStatuses(String value) {
         this.value = value;
     }
+
     public String getValue() {
         return value;
     }
-
 }

@@ -1,7 +1,8 @@
-package com.obrio.pages;
+package com.obrio.pages.registration_screens;
 
 import com.obrio.elements.Button;
 import com.obrio.elements.IButton;
+import com.obrio.pages.BaseScreen;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
 
@@ -20,7 +21,6 @@ public class TimeOfBirthScreen extends BaseScreen {
 
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"genesis.nebula:id/message\")")
     private WebElement infoMessage;
-
 
     @Override
     protected void waitUntilScreenIsLoaded(WebElement element) {
@@ -41,7 +41,7 @@ public class TimeOfBirthScreen extends BaseScreen {
     }
 
     public String getTextFromInfoMessage() {
-        elementUtils().tryWaitUntil(() -> isElementShown(infoMessage), 2);
+        waitUtils().tryWaitUntil(() -> isElementShown(infoMessage), 2);
         return infoMessage.getText();
     }
 

@@ -16,6 +16,8 @@ import static com.obrio.drivers.DriverManager.getDriverInstance;
 public class SwipeUtils {
 
     private static final PointerInput FINGER = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+    private static final WebDriverWait wait = new WebDriverWait(getDriverInstance(), Duration.ofSeconds(5));
+    private static final int DATE_PICKER_WHEEL_CENTER_Y_AXIS = 1137;
 
     public static void swipe(int startX, int startY, int endX, int endY) {
         Sequence swipe = new Sequence(FINGER, 1);
@@ -34,15 +36,13 @@ public class SwipeUtils {
         int startX = 1056;
         int startY = 1041;
         int endX = 1184;
-        int endY = 1137;
-        WebDriverWait wait = new WebDriverWait(getDriverInstance(), Duration.ofSeconds(5));
+
         while (count < swipeAttempt) {
             try {
-                //// TODO: 26.10.2024 check is we can use smaller amount of seconds
                 wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
                 return;
             } catch (TimeoutException | NoSuchElementException e) {
-                swipe(startX, startY, endX, endY);
+                swipe(startX, startY, endX, DATE_PICKER_WHEEL_CENTER_Y_AXIS);
                 count++;
             }
         }
@@ -53,15 +53,12 @@ public class SwipeUtils {
         int startX = 1216;
         int startY = 1041;
         int endX = 1344;
-        int endY = 1137;
-        WebDriverWait wait = new WebDriverWait(getDriverInstance(), Duration.ofSeconds(5));
         while (count < swipeAttempt) {
             try {
-                //// TODO: 26.10.2024 check is we can use smaller amount of seconds
                 wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
                 return;
             } catch (TimeoutException | NoSuchElementException e) {
-                swipe(startX, startY, endX, endY);
+                swipe(startX, startY, endX, DATE_PICKER_WHEEL_CENTER_Y_AXIS);
                 count++;
             }
         }
@@ -72,15 +69,12 @@ public class SwipeUtils {
         int startX = 1376;
         int startY = 1041;
         int endX = 1504;
-        int endY = 1137;
-        WebDriverWait wait = new WebDriverWait(getDriverInstance(), Duration.ofSeconds(5));
         while (count < swipeAttempt) {
             try {
-                //// TODO: 26.10.2024 check is we can use smaller amount of seconds
                 wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
                 return;
             } catch (TimeoutException | NoSuchElementException e) {
-                swipe(startX, startY, endX, endY);
+                swipe(startX, startY, endX, DATE_PICKER_WHEEL_CENTER_Y_AXIS);
                 count++;
             }
         }

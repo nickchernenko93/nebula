@@ -1,6 +1,7 @@
-package com.obrio.data;
+package com.obrio.data.registration;
 
 public enum Genders {
+
     MALE("Male"),
     FEMALE("Female"),
     NON_BINARY("Non–binary");
@@ -10,6 +11,7 @@ public enum Genders {
     Genders(String value) {
         this.value = value;
     }
+
     public String getValue() {
         return value;
     }
