@@ -5,21 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="41968955-42e9-4875-84d9-ed7329e088f7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/data/ui/fields/SettingsFields.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/data/ui/fields/SettingsFields.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/data/registration/Genders.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/data/registration/Genders.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/data/registration/Goals.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/data/registration/Goals.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/data/registration/Interests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/data/registration/Interests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/data/registration/RelationshipStatuses.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/data/registration/RelationshipStatuses.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/drivers/DriverManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/drivers/DriverManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/elements/AbstractUIElements.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/elements/AbstractUIElements.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/elements/Input.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/elements/Input.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/pages/HomeScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/pages/HomeScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/pages/registration_screens/MotivationScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/pages/registration_screens/MotivationScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/pages/registration_screens/RegistrationHomeScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/pages/registration_screens/RegistrationHomeScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/pages/registration_screens/SignUpScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/pages/registration_screens/SignUpScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/pages/settings_screens/AccountSettingScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/pages/settings_screens/AccountSettingScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/pages/settings_screens/ProfileSettingScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/pages/settings_screens/ProfileSettingScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/pages/settings_screens/SettingsScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/pages/settings_screens/SettingsScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/utils/DateFormatUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/utils/DateFormatUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/utils/ElementUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/utils/ElementUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/obrio/tests/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/obrio/tests/BaseNebulaRegistrationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/obrio/tests/VerifySuccessfullyNebulaRegistrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/obrio/tests/VerifySuccessfulNebulaRegistrationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/utils/SwipeUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/utils/SwipeUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/utils/WaitUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/utils/WaitUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/obrio/tests/BaseNebulaRegistrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/obrio/tests/BaseNebulaRegistrationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/obrio/tests/VerifySuccessfulNebulaRegistrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/obrio/tests/VerifySuccessfulNebulaRegistrationTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +59,7 @@
     "TestNG.Testing.executor": "Debug",
     "TestNG.Testing.test (1).executor": "Debug",
     "TestNG.Testing.test.executor": "Debug",
-    "TestNG.VerifySuccessfulNebulaRegistrationTest.executor": "Debug",
+    "TestNG.VerifySuccessfulNebulaRegistrationTest.executor": "Run",
     "TestNG.VerifySuccessfullyNebulaRegistrationTest.executor": "Run",
     "TestNG.VerifySuccessfullyNebulaRegistrationTest.verifyDayOfBirthPageOpened.executor": "Run",
     "TestNG.VerifySuccessfullyNebulaRegistrationTest.verifyHomePageIsOpened.executor": "Debug",
@@ -209,7 +207,7 @@
       <workItem from="1729743028864" duration="10000" />
       <workItem from="1729743094121" duration="43000" />
       <workItem from="1729743156732" duration="6553000" />
-      <workItem from="1729840529178" duration="92254000" />
+      <workItem from="1729840529178" duration="95023000" />
     </task>
     <servers />
   </component>
@@ -230,9 +228,9 @@
           <option name="timeStamp" value="103" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/obrio/pages/settings_screens/SettingsScreen.java</url>
-          <line>39</line>
-          <option name="timeStamp" value="112" />
+          <url>file://$PROJECT_DIR$/src/test/java/com/obrio/tests/VerifySuccessfulNebulaRegistrationTest.java</url>
+          <line>246</line>
+          <option name="timeStamp" value="113" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -1,6 +1,7 @@
 package com.obrio.data.registration;
 
 public enum Interests {
+
     LOVE("love"),
     MONEY("money");
 

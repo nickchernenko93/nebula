@@ -37,7 +37,7 @@ public class SettingsScreen extends BaseScreen {
 
     public void closeInformationPopUpIfItAppears() {
         try {
-            if (isElementShown(informationPopUpContainer)){
+            if (isElementShown(informationPopUpContainer)) {
                 okButton().click();
             }
         } catch (NoSuchElementException ignored) {

@@ -16,15 +16,6 @@ public class ElementUtils {
         }
     }
 
-    public static boolean isElementEnable(WebElement element) {
-        try {
-            return element.isEnabled();
-        } catch (NoSuchElementException | StaleElementReferenceException ignored) {
-            return false;
-        }
-    }
-
-
     public static boolean isClickable(WebElement element) {
         try {
             getWebDriverWait();

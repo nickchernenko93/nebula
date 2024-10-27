@@ -59,7 +59,6 @@ public class WaitUtils {
         try {
             waitUntil(condition, duration);
         } catch (Exception ignored) {
-
         }
     }
 
@@ -67,7 +66,6 @@ public class WaitUtils {
         try {
             waitUntil(condition);
         } catch (Exception ignored) {
-
         }
     }
 

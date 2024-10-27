@@ -23,6 +23,23 @@ import static com.obrio.data.registration.RelationshipStatuses.SINGLE;
 
 public class VerifySuccessfulNebulaRegistrationTest extends BaseNebulaRegistrationTest {
 
+    private final SettingsFields NAME = SettingsFields.NAME;
+    private final SettingsFields GENDER = SettingsFields.GENDER;
+    private final SettingsFields RELATIONSHIP_STATUS = SettingsFields.RELATIONSHIP_STATUS;
+    private final SettingsFields DATE_OF_BIRTH = SettingsFields.DATE_OF_BIRTH;
+    private final SettingsFields PLACE_OF_BIRTH = SettingsFields.PLACE_OF_BIRTH;
+    private final SettingsFields EMAIL = SettingsFields.EMAIL;
+    private final SettingsFields LOGIN_METHOD = SettingsFields.LOGIN_METHOD;
+    private final SettingsFields USER_ID = SettingsFields.USER_ID;
+    private String dayOfBirth;
+    private String monthOfBirth;
+    private String placeOfBirth;
+    private String name;
+    private String email;
+    private String password;
+    private String formattedDate;
+    private String yearOfBirth;
+
     @DataProvider(name = "goalsDataProvider")
     public Object[][] goalsDataProvider() {
         return new Object[][]{
@@ -68,13 +85,13 @@ public class VerifySuccessfulNebulaRegistrationTest extends BaseNebulaRegistrati
     @Test(dependsOnMethods = "verifyBirthChatScreenIsOpened", alwaysRun = true)
     public void verifyDayOfBirthScreenOpenedAndDateIsSet() {
         dateOfBirthScreen = birthChartScreen.clickNextButtonAndOpenDateOfBirthScreen();
-//        dateOfBirthScreen.selectMonth(monthOfBirth);
-//        dateOfBirthScreen.selectDay(dayOfBirth);
-//        dateOfBirthScreen.selectYear(String.valueOf(yearOfBirth));
+        dateOfBirthScreen.selectMonth(monthOfBirth);
+        dateOfBirthScreen.selectDay(dayOfBirth);
+        dateOfBirthScreen.selectYear(String.valueOf(yearOfBirth));
 
-//        Arrays.asList(dayOfBirth, monthOfBirth).forEach(value -> soft.assertTrue(dateOfBirthScreen.isDateValueSetInPickerWheel(value),
-//                String.format("'%s' value should be present and set", value)));
-//        soft.assertAll();
+        Arrays.asList(dayOfBirth, monthOfBirth, yearOfBirth).forEach(value -> soft.assertTrue(dateOfBirthScreen.isDateValueSetInPickerWheel(value),
+                String.format("'%s' value should be present and set", value)));
+        soft.assertAll();
     }
 
     @Test(dependsOnMethods = "verifyDayOfBirthScreenOpenedAndDateIsSet", alwaysRun = true)
@@ -184,11 +201,16 @@ public class VerifySuccessfulNebulaRegistrationTest extends BaseNebulaRegistrati
         settingScreen = homeScreen.openSettings()
                 .openNeededSettingScreen("My Profile", ProfileSettingScreen::new);
 
-        soft.assertEquals(settingScreen.getValueFromField(SettingsFields.NAME), name);
-        soft.assertEquals(settingScreen.getValueFromField(SettingsFields.GENDER), MALE.getValue());
-        soft.assertEquals(settingScreen.getValueFromField(SettingsFields.RELATIONSHIP_STATUS), SINGLE.getValue());
-        soft.assertEquals(settingScreen.getValueFromField(SettingsFields.DATE_OF_BIRTH), formattedDate);
-        soft.assertTrue(settingScreen.getValueFromField(SettingsFields.PLACE_OF_BIRTH).contains(placeOfBirth));
+        soft.assertEquals(settingScreen.getValueFromField(NAME), name,
+                String.format(VALUE_FROM_FIELD_SHOULD_BE_EQUAL_TO_EXPECTED, NAME, name));
+        soft.assertEquals(settingScreen.getValueFromField(GENDER), MALE.getValue(),
+                String.format(VALUE_FROM_FIELD_SHOULD_BE_EQUAL_TO_EXPECTED, GENDER, MALE.getValue()));
+        soft.assertEquals(settingScreen.getValueFromField(RELATIONSHIP_STATUS), SINGLE.getValue(),
+                String.format(VALUE_FROM_FIELD_SHOULD_BE_EQUAL_TO_EXPECTED, RELATIONSHIP_STATUS, SINGLE.getValue()));
+        soft.assertEquals(settingScreen.getValueFromField(DATE_OF_BIRTH), formattedDate,
+                String.format(VALUE_FROM_FIELD_SHOULD_BE_EQUAL_TO_EXPECTED, DATE_OF_BIRTH, formattedDate));
+        soft.assertTrue(settingScreen.getValueFromField(PLACE_OF_BIRTH).contains(placeOfBirth),
+                String.format("'%s' value should be set in '%s' field", PLACE_OF_BIRTH, placeOfBirth));
         soft.assertAll();
     }
 
@@ -196,9 +218,12 @@ public class VerifySuccessfulNebulaRegistrationTest extends BaseNebulaRegistrati
     public void verifyAccountFieldValuesHasCorrectValuesAndUserIdFieldPopulatedAfterRegistration() {
         settingScreen.closeSettingAndOpenNeededSettingScreen("Account details", AccountSettingScreen::new);
 
-        soft.assertEquals(settingScreen.getValueFromField(SettingsFields.EMAIL), email);
-        soft.assertEquals(settingScreen.getValueFromField(SettingsFields.LOGIN_METHOD), "Email");
-        soft.assertFalse(settingScreen.getValueFromField(SettingsFields.USER_ID).isEmpty());
+        soft.assertEquals(settingScreen.getValueFromField(EMAIL), email,
+                String.format(VALUE_FROM_FIELD_SHOULD_BE_EQUAL_TO_EXPECTED, EMAIL, email));
+        soft.assertEquals(settingScreen.getValueFromField(LOGIN_METHOD), EMAIL,
+                String.format(VALUE_FROM_FIELD_SHOULD_BE_EQUAL_TO_EXPECTED, LOGIN_METHOD, EMAIL));
+        soft.assertFalse(settingScreen.getValueFromField(USER_ID).isEmpty(),
+                String.format("'%s' field should not be empty", USER_ID));
         soft.assertAll();
     }
 
@@ -210,12 +235,12 @@ public class VerifySuccessfulNebulaRegistrationTest extends BaseNebulaRegistrati
     }
 
     private void createTestData() {
-        Date date = FAKER.date().birthday(35, 40);
+        Date date = FAKER.date().birthday(34, 40);
         DateFormatUtils dateFormatUtils = new DateFormatUtils();
         formattedDate = dateFormatUtils.formatDate(String.valueOf(date));
         dayOfBirth = dateFormatUtils.formatDayDate(date);
         monthOfBirth = dateFormatUtils.formatMonthDate(date);
-        yearOfBirth = FAKER.number().numberBetween(1990, 1980);
+        yearOfBirth = String.valueOf(FAKER.number().numberBetween(1990, 1985));
         placeOfBirth = FAKER.address().cityPrefix();
         name = FAKER.name().fullName();
         password = "Iddqdd1!";

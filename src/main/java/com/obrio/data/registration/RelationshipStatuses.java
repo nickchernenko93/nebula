@@ -1,6 +1,7 @@
 package com.obrio.data.registration;
 
 public enum RelationshipStatuses {
+
     SINGLE("Single"),
     ENGAGED("Engaged");
 

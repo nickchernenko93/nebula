@@ -8,6 +8,8 @@ import io.appium.java_client.pagefactory.AndroidFindAll;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
 
+import static com.obrio.utils.ElementUtils.isElementShown;
+
 public class HomeScreen extends BaseScreen {
 
     public HomeScreen() {
@@ -52,7 +54,7 @@ public class HomeScreen extends BaseScreen {
     }
 
     public boolean isHomeScreenOpened() {
-        return characterImage.isDisplayed();
+        return isElementShown(characterImage);
     }
 
     protected void waitUntilLoaded() {

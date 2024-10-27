@@ -14,7 +14,6 @@ import java.util.Properties;
 public class DriverManager {
 
     private DriverManager() {
-
     }
 
     private static Properties properties = null;

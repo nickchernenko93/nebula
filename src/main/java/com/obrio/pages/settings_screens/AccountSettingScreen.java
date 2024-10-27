@@ -9,9 +9,10 @@ public class AccountSettingScreen extends GeneralSettingScreen {
         waitUntilScreenLoaded();
     }
 
-    private void waitUntilScreenLoaded(){
+    private void waitUntilScreenLoaded() {
         waitUtils().tryWaitUntil(() -> accountSettingTitle.isDisplayed(), 2);
     }
+
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"genesis.nebula:id/toolbarBackTitleText\")")
     private WebElement accountSettingTitle;
 }

@@ -1,6 +1,7 @@
 package com.obrio.data.registration;
 
 public enum Genders {
+
     MALE("Male"),
     FEMALE("Female"),
     NON_BINARY("Non–binary");
