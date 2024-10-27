@@ -27,6 +27,7 @@ public class InterestsScreen extends BaseScreen {
 
     protected void selectInterest(String interest) {
         String locator = String.format("//android.widget.TextView[@text=\"%s\"]/parent::android.widget.FrameLayout", interest);
+        elementUtils().tryWaitUntil(() -> getDriverInstance().findElement(By.xpath(locator)).isEnabled());
         getDriverInstance().findElement(By.xpath(locator)).click();
     }
 

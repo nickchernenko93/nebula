@@ -1,6 +1,6 @@
 package com.obrio.pages;
 
-import com.obrio.data.Genders;
+import com.obrio.data.registration.Genders;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;

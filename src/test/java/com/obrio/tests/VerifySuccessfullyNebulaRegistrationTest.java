@@ -12,15 +12,16 @@ import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.Date;
 
-import static com.obrio.data.Genders.*;
-import static com.obrio.data.Goals.*;
-import static com.obrio.data.Interests.LOVE;
-import static com.obrio.data.Interests.MONEY;
-import static com.obrio.data.RelationshipStatuses.SINGLE;
+import static com.obrio.data.registration.Genders.*;
+import static com.obrio.data.registration.Goals.*;
+import static com.obrio.data.registration.Interests.LOVE;
+import static com.obrio.data.registration.Interests.MONEY;
+import static com.obrio.data.registration.RelationshipStatuses.SINGLE;
 
 public class VerifySuccessfullyNebulaRegistrationTest extends BaseTest {
 
     private final String SCREEN_SHOULD_BE_OPENED = "Screen should be opened";
+    private final String BUTTON_SHOULD_BE_SHOWN = "Button should be shown";
     private final String YES_OPTION = "YES";
     private final String NO_OPTION = "NO";
     private HomeScreen homeScreen;
@@ -36,12 +37,15 @@ public class VerifySuccessfullyNebulaRegistrationTest extends BaseTest {
     private MotivationScreen motivationScreen;
     private HoroscopeRemainderScreen horoscopeRemainderScreen;
     private SocialMediaScreen socialMediaScreen;
-    private String day;
-    private String month;
+    private CreateAccountScreen createAccountScreen;
+    private SignUpScreen signUpScreen;
+    private HoroscopeScreen horoscopeScreen;
+    private String dayOfBirth;
+    private String monthOfBirth;
     private String placeOfBirth;
     private String name;
-    private final String NEXT_BUTTON_NAME = "NEXT";
-    private final String SKIP_BUTTON_NAME = "SKIP";
+    private String email;
+    private String password;
 
     @DataProvider(name = "goalsDataProvider")
     public Object[][] goalsDataProvider() {
@@ -54,14 +58,14 @@ public class VerifySuccessfullyNebulaRegistrationTest extends BaseTest {
     }
 
     @BeforeClass(alwaysRun = true)
-    public HomeScreen openHomePage() {
+    public HomeScreen openHomeScreen() {
         createTestData();
         return homeScreen = new HomeScreen();
     }
 
     @Test
     public void verifyHomeScreenIsOpened() {
-        Assert.assertTrue(homeScreen.isHomePageOpened(), SCREEN_SHOULD_BE_OPENED);
+        Assert.assertTrue(homeScreen.isHomeScreenOpened(), SCREEN_SHOULD_BE_OPENED);
     }
 
     @Test(dataProvider = "goalsDataProvider", dependsOnMethods = "verifyHomeScreenIsOpened", alwaysRun = true)
@@ -156,12 +160,32 @@ public class VerifySuccessfullyNebulaRegistrationTest extends BaseTest {
     @Test(dependsOnMethods = "verifyInterestsSelectedAndHoroscopeRemainderScreenOpened", alwaysRun = true)
     public void verifyNextButtonIsDisableWhenInterestIsNotSelectedAndSkipButtonIsEnableOnSocialMediaScreen() {
         socialMediaScreen = horoscopeRemainderScreen.clickSkipButtonAndOpenSocialMediaScreen();
-        soft.assertFalse(socialMediaScreen.isButtonEnabled(NEXT_BUTTON_NAME),
-                String.format("'%s' button should be disabled", NEXT_BUTTON_NAME));
-        soft.assertTrue(socialMediaScreen.isButtonEnabled(SKIP_BUTTON_NAME),
-                String.format("'%s' button should be enabled", SKIP_BUTTON_NAME));
+        String nextButtonName = "NEXT";
+        String skipButtonName = "SKIP";
+        soft.assertFalse(socialMediaScreen.isButtonEnabled(nextButtonName),
+                String.format("'%s' button should be disabled", nextButtonName));
+        soft.assertTrue(socialMediaScreen.isButtonEnabled(skipButtonName),
+                String.format("'%s' button should be enabled", skipButtonName));
         soft.assertAll();
     }
+
+    @Test(dependsOnMethods = "verifyNextButtonIsDisableWhenInterestIsNotSelectedAndSkipButtonIsEnableOnSocialMediaScreen", alwaysRun = true)
+    public void verifyCreateAccountScreenOpenedAndSignInViaEmailAndViaGoogleButtonsPresent() {
+        createAccountScreen = socialMediaScreen.clickSkipButtonAndOpenReachYourGoalScreen()
+                .clickNextButtonAndOpenReviewsScreen()
+                .clickNextButtonAndOpenCreateAccountScreen();
+        soft.assertTrue(createAccountScreen.isCreateAccountViaEmailButtonShown(), BUTTON_SHOULD_BE_SHOWN);
+        soft.assertTrue(createAccountScreen.isCreateAccountViaGoogleButtonShown(), BUTTON_SHOULD_BE_SHOWN);
+        soft.assertAll();
+    }
+
+    @Test(dependsOnMethods = "verifyCreateAccountScreenOpenedAndSignInViaEmailAndViaGoogleButtonsPresent", alwaysRun = true)
+    public void verifyEmailAndPasswordSetAndHoroscopeScreenOpened() {
+       createAccountScreen.clickCreateAccountViaEmailButtonAndOpenSignUpScreen()
+                       .fillInDataForRegistrationAndExpectHoroscopeScreen(email, password);
+        System.out.println("e");
+    }
+
 
     @AfterMethod(alwaysRun = true)
     private void afterMethodActions(Method method) {
@@ -173,9 +197,11 @@ public class VerifySuccessfullyNebulaRegistrationTest extends BaseTest {
     private void createTestData() {
         Date date = FAKER.date().birthday();
         DateFormatUtils dateFormatUtils = new DateFormatUtils();
-        day = dateFormatUtils.formatDayDate(date);
-        month = dateFormatUtils.formatMonthDate(date);
+        dayOfBirth = dateFormatUtils.formatDayDate(date);
+        monthOfBirth = dateFormatUtils.formatMonthDate(date);
         placeOfBirth = "New York";
         name = FAKER.name().fullName();
+        email = FAKER.internet().emailAddress();
+        password = FAKER.internet().password(8, 12, true, true);
     }
 }

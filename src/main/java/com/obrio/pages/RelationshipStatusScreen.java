@@ -1,6 +1,6 @@
 package com.obrio.pages;
 
-import com.obrio.data.RelationshipStatuses;
+import com.obrio.data.registration.RelationshipStatuses;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;

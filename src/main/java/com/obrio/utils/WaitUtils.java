@@ -11,7 +11,8 @@ import java.time.Duration;
 import static com.obrio.drivers.DriverManager.getDriverInstance;
 
 public class WaitUtils {
-public static final int DEFAULT_TIMEOUT_TO_WAIT = 2;
+public static final int DEFAULT_TIMEOUT_TO_WAIT = 3;
+public static final int LONG_TIMEOUT_TO_WAIT = 30;
     public static FluentWait<AndroidDriver> getWebDriverWait(int timeInSeconds) {
         return new FluentWait<>(getDriverInstance()).withTimeout(Duration.ofSeconds(timeInSeconds))
                 .ignoring(NoSuchElementException.class)

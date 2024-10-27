@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
+import static com.obrio.utils.WaitUtils.LONG_TIMEOUT_TO_WAIT;
 import static com.obrio.utils.WaitUtils.getWebDriverWait;
 
 public class ElementUtils {
@@ -58,6 +59,11 @@ public class ElementUtils {
         getWebDriverWait().until(conditionToBeTrue);
     }
 
+    public static void waitUntilElementIsNotDisplayed(Supplier<Boolean> condition) {
+        Function<WebDriver, Boolean> conditionToBeFalse = (WebDriver d) -> condition.get().equals(Boolean.FALSE);
+        getWebDriverWait(LONG_TIMEOUT_TO_WAIT).until(conditionToBeFalse);
+    }
+
     public void tryWaitUntil(Supplier<Boolean> condition, int duration) {
         try {
             waitUntil(condition, duration);
@@ -71,6 +77,12 @@ public class ElementUtils {
             waitUntil(condition);
         } catch (Exception ignored) {
 
+        }
+    }
+    public void tryWaitUntilElementIsNotDisplayed(Supplier<Boolean> condition) {
+        try {
+            waitUntilElementIsNotDisplayed(condition);
+        } catch (Exception ignored) {
         }
     }
 }

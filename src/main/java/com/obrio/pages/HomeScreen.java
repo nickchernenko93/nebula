@@ -2,6 +2,7 @@ package com.obrio.pages;
 
 import com.obrio.elements.Button;
 import com.obrio.elements.IButton;
+import com.obrio.utils.ElementUtils;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
 
@@ -22,8 +23,8 @@ public class HomeScreen extends BaseScreen {
         super.waitUntilScreenIsLoaded(nebulaLabel);
     }
 
-    public boolean isHomePageOpened(){
-        return nebulaLabel.isDisplayed();
+    public boolean isHomeScreenOpened(){
+        return ElementUtils.isElementShown(nebulaLabel);
     }
 
     public GoalsScreen clickGetStartedButtonAndOpenGoalsScreen() {

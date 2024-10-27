@@ -1,4 +1,4 @@
-package com.obrio.data;
+package com.obrio.data.registration;
 
 public enum Goals {
     UNDERSTAND_MYSELF("Understand myself and others better"),
