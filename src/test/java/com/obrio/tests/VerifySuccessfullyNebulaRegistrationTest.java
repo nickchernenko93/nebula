@@ -21,6 +21,8 @@ import static com.obrio.data.RelationshipStatuses.SINGLE;
 public class VerifySuccessfullyNebulaRegistrationTest extends BaseTest {
 
     private final String SCREEN_SHOULD_BE_OPENED = "Screen should be opened";
+    private final String YES_OPTION = "YES";
+    private final String NO_OPTION = "NO";
     private HomeScreen homeScreen;
     private GoalsScreen goalsScreen;
     private YourGoalsScreen yourGoalsScreen;
@@ -32,6 +34,8 @@ public class VerifySuccessfullyNebulaRegistrationTest extends BaseTest {
     private GenderScreen genderScreen;
     private RelationshipStatusScreen relationshipStatusScreen;
     private MotivationScreen motivationScreen;
+    private HoroscopeRemainderScreen horoscopeRemainderScreen;
+    private SocialMediaScreen socialMediaScreen;
     private String day;
     private String month;
     private String placeOfBirth;
@@ -132,6 +136,26 @@ public class VerifySuccessfullyNebulaRegistrationTest extends BaseTest {
     public void verifyRelationshipStatusAndInterestsSelectedAndMotivationScreenOpened() {
         motivationScreen = relationshipStatusScreen.selectRelationshipStatusAndOpenInterestsScreen(SINGLE)
                 .selectInterestsAndOpenMotivationScreen(MONEY.getValue(), LOVE.getValue());
+        Assert.assertTrue(motivationScreen.isMotivationScreenOpened(), SCREEN_SHOULD_BE_OPENED);
+    }
+
+    @Test(dependsOnMethods = "verifyRelationshipStatusAndInterestsSelectedAndMotivationScreenOpened", alwaysRun = true)
+    public void verifyInterestsSelectedAndHoroscopeRemainderScreenOpened() {
+        horoscopeRemainderScreen = motivationScreen.selectOption(YES_OPTION)
+                .clickNextButton()
+                .selectOption(NO_OPTION)
+                .selectOption(YES_OPTION)
+                .clickNextButton()
+                .selectOption(YES_OPTION)
+                .clickNextButtonAndOpenHoroscopeRemainderScreen();
+        Assert.assertTrue(horoscopeRemainderScreen.isBellImageShown(), "Bell image should be shown");
+    }
+
+    @Test(dependsOnMethods = "verifyInterestsSelectedAndHoroscopeRemainderScreenOpened", alwaysRun = true)
+    public void verifyNextButtonIsDisabledWhenInterestIsNotSelectedOnSocialMediaScreen() {
+        socialMediaScreen = horoscopeRemainderScreen.clickSkipButtonAndOpenSocialMediaScreen();
+
+
     }
 
     @AfterMethod(alwaysRun = true)
