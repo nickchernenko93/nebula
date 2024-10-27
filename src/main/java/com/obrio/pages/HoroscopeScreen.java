@@ -5,10 +5,19 @@ import com.obrio.elements.IButton;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
 
+import static com.obrio.utils.WaitUtils.waitForSeconds;
+
 public class HoroscopeScreen extends BaseScreen {
+
+    HoroscopeScreen(){
+        waitUntilLoaded();
+    }
 
     @AndroidFindBy(uiAutomator = "//android.widget.TextView[@resource-id=\"genesis.nebula:id/uploadResultProgressViewTitleText\"]")
     private WebElement uploadResultProgressViewElement;
+
+    @AndroidFindBy(uiAutomator = "android.widget.ProgressBar")
+    private WebElement progressBarElement;
 
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"genesis.nebula:id/premiumHeaderElevate\")")
     private WebElement nebulaPremiumPopUp;
@@ -34,8 +43,17 @@ public class HoroscopeScreen extends BaseScreen {
         return new Button(settingsButton, "'Settings' button");
     }
 
-    @Override
-    protected void waitUntilScreenIsLoaded(WebElement element) {
+    public GeneralSettingsScreen openSettings() {
+        settingsButton().click();
+        return new GeneralSettingsScreen();
+    }
+
+    public boolean isHoroscopeScreenOpened() {
+        return characterImage.isDisplayed();
+    }
+
+    protected void waitUntilLoaded() {
+        elementUtils().tryWaitUntilElementIsNotDisplayed(() -> progressBarElement.isDisplayed());
         elementUtils().tryWaitUntilElementIsNotDisplayed(() -> uploadResultProgressViewElement.isDisplayed());
         elementUtils().tryWaitUntil(() -> nebulaPremiumPopUp.isDisplayed());
         if (nebulaPremiumPopUp.isDisplayed()) {
@@ -44,7 +62,6 @@ public class HoroscopeScreen extends BaseScreen {
         if (zodiacLabel.isDisplayed()) {
             closeButton().click();
         }
-        super.waitUntilScreenIsLoaded(characterImage);
     }
 
 

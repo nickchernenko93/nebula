@@ -1,5 +1,6 @@
 package com.obrio.tests;
 
+import com.obrio.data.ui.fields.SettingsFields;
 import com.obrio.pages.*;
 import com.obrio.utils.DateFormatUtils;
 import org.testng.Assert;
@@ -40,6 +41,7 @@ public class VerifySuccessfullyNebulaRegistrationTest extends BaseTest {
     private CreateAccountScreen createAccountScreen;
     private SignUpScreen signUpScreen;
     private HoroscopeScreen horoscopeScreen;
+    private ProfileSettingScreen settingScreen;
     private String dayOfBirth;
     private String monthOfBirth;
     private String placeOfBirth;
@@ -181,11 +183,30 @@ public class VerifySuccessfullyNebulaRegistrationTest extends BaseTest {
 
     @Test(dependsOnMethods = "verifyCreateAccountScreenOpenedAndSignInViaEmailAndViaGoogleButtonsPresent", alwaysRun = true)
     public void verifyEmailAndPasswordSetAndHoroscopeScreenOpened() {
-       createAccountScreen.clickCreateAccountViaEmailButtonAndOpenSignUpScreen()
-                       .fillInDataForRegistrationAndExpectHoroscopeScreen(email, password);
-        System.out.println("e");
+        horoscopeScreen = createAccountScreen.clickCreateAccountViaEmailButtonAndOpenSignUpScreen()
+                .fillInDataForRegistrationAndExpectHoroscopeScreen(email, password);
+        Assert.assertTrue(horoscopeScreen.isHoroscopeScreenOpened(), SCREEN_SHOULD_BE_OPENED);
     }
 
+    @Test(dependsOnMethods = "verifyEmailAndPasswordSetAndHoroscopeScreenOpened", alwaysRun = true)
+    public void verifyProfileSettingsFieldHasCorrectValuesAfterRegistration() {
+        settingScreen = horoscopeScreen.openSettings()
+                .openNeededSettingScreen("My Profile", ProfileSettingScreen::new);
+        soft.assertEquals(settingScreen.getValueFromField(SettingsFields.NAME), name);
+        soft.assertEquals(settingScreen.getValueFromField(SettingsFields.GENDER), MALE.getValue());
+        soft.assertEquals(settingScreen.getValueFromField(SettingsFields.PLACE_OF_BIRTH), placeOfBirth);
+        soft.assertEquals(settingScreen.getValueFromField(SettingsFields.RELATIONSHIP_STATUS), SINGLE.getValue());
+        soft.assertAll();
+    }
+
+    @Test(dependsOnMethods = "verifyProfileSettingsFieldHasCorrectValuesAfterRegistration", alwaysRun = true)
+    public void verifyAccountFieldValuesHasCorrectValuesAndUserIdFieldPopulatedAfterRegistration() {
+        settingScreen.closeSettingAndOpenNeededSetting("Account", AccountSettingScreen::new);
+        soft.assertEquals(settingScreen.getValueFromField(SettingsFields.EMAIL), email);
+        soft.assertEquals(settingScreen.getValueFromField(SettingsFields.LOGIN_METHOD), email);
+        soft.assertFalse(settingScreen.getValueFromField(SettingsFields.USER_ID).isEmpty());
+        soft.assertAll();
+    }
 
     @AfterMethod(alwaysRun = true)
     private void afterMethodActions(Method method) {

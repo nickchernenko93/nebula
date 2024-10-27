@@ -23,4 +23,13 @@ public static final int LONG_TIMEOUT_TO_WAIT = 30;
     public static FluentWait<AndroidDriver> getWebDriverWait() {
         return getWebDriverWait(DEFAULT_TIMEOUT_TO_WAIT);
     }
+
+    public static void waitForSeconds(long seconds) {
+        try {
+            Thread.sleep(seconds * 1000);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            throw new RuntimeException(e);
+        }
+    }
 }

@@ -5,16 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="41968955-42e9-4875-84d9-ed7329e088f7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/obrio/pages/CreateAccountScreen.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/obrio/pages/HoroscopeScreen.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/obrio/pages/ReachYourGoalScreen.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/obrio/pages/ReviewsScreen.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/obrio/pages/SignUpScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/pages/HomeScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/pages/HomeScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/pages/InterestsScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/pages/InterestsScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/pages/SocialMediaScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/pages/SocialMediaScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/utils/ElementUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/utils/ElementUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/pages/HoroscopeScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/pages/HoroscopeScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/pages/SignUpScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/pages/SignUpScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/utils/WaitUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/utils/WaitUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/obrio/tests/VerifySuccessfullyNebulaRegistrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/obrio/tests/VerifySuccessfullyNebulaRegistrationTest.java" afterDir="false" />
     </list>
@@ -27,8 +20,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Enum" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -77,6 +70,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.obrio.data.registration" />
       <recent name="com.obrio.utils" />
       <recent name="com.obrio.pages" />
     </key>
@@ -202,7 +196,7 @@
       <workItem from="1729743028864" duration="10000" />
       <workItem from="1729743094121" duration="43000" />
       <workItem from="1729743156732" duration="6553000" />
-      <workItem from="1729840529178" duration="73163000" />
+      <workItem from="1729840529178" duration="77793000" />
     </task>
     <servers />
   </component>
@@ -214,13 +208,18 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/com/obrio/tests/VerifySuccessfullyNebulaRegistrationTest.java</url>
-          <line>184</line>
-          <option name="timeStamp" value="80" />
+          <line>190</line>
+          <option name="timeStamp" value="83" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/com/obrio/tests/VerifySuccessfullyNebulaRegistrationTest.java</url>
-          <line>185</line>
-          <option name="timeStamp" value="81" />
+          <line>191</line>
+          <option name="timeStamp" value="84" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/obrio/pages/SignUpScreen.java</url>
+          <line>58</line>
+          <option name="timeStamp" value="87" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
