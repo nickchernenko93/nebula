@@ -9,7 +9,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.asserts.SoftAssert;
 
-public class BaseTest {
+public class BaseNebulaRegistrationTest {
     protected static final Faker FAKER = new Faker();
     protected final String SCREEN_SHOULD_BE_OPENED = "Screen should be opened";
     protected RegistrationHomeScreen registrationHomeScreen;
@@ -34,6 +34,7 @@ public class BaseTest {
     protected String name;
     protected String email;
     protected String password;
+    protected String formattedDate;
     protected int yearOfBirth;
     protected SoftAssert soft;
 

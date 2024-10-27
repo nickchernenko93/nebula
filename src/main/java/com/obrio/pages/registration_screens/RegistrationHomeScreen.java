@@ -24,7 +24,7 @@ public class RegistrationHomeScreen extends BaseScreen {
         super.waitUntilScreenIsLoaded(nebulaLabel);
     }
 
-    public boolean isHomeScreenOpened() {
+    public boolean isRegistrationHomeScreenOpened() {
         return ElementUtils.isElementShown(nebulaLabel);
     }
 

@@ -1,5 +1,6 @@
 package com.obrio.elements;
 
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 
 public abstract class AbstractUIElements implements UIElements {

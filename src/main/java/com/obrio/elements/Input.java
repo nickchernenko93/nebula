@@ -3,7 +3,7 @@ package com.obrio.elements;
 import org.openqa.selenium.WebElement;
 
 import static com.obrio.utils.ElementUtils.isClickable;
-import static com.obrio.utils.ElementUtils.waitUntil;
+import static com.obrio.utils.WaitUtils.waitUntil;
 
 public class Input extends AbstractUIElements implements IInput {
     public Input(WebElement element, String elementName) {

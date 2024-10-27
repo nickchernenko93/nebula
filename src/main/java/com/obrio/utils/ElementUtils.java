@@ -24,6 +24,7 @@ public class ElementUtils {
         }
     }
 
+
     public static boolean isClickable(WebElement element) {
         try {
             getWebDriverWait();

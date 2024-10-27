@@ -7,9 +7,11 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import java.util.NoSuchElementException;
 import java.util.function.Supplier;
 
 import static com.obrio.drivers.DriverManager.getDriverInstance;
+import static com.obrio.utils.ElementUtils.isElementShown;
 
 public class SettingsScreen extends BaseScreen {
 
@@ -33,6 +35,16 @@ public class SettingsScreen extends BaseScreen {
         return new Button(backButton, "'Back' button");
     }
 
+    public void closeInformationPopUpIfItAppears() {
+        try {
+            if (isElementShown(informationPopUpContainer)){
+                okButton().click();
+            }
+        } catch (NoSuchElementException ignored) {
+
+        }
+    }
+
     @Override
     protected void waitUntilScreenIsLoaded(WebElement element) {
         super.waitUntilScreenIsLoaded(settingsScreenLabel);
@@ -41,15 +53,14 @@ public class SettingsScreen extends BaseScreen {
     public <T> T openNeededSettingScreen(String settingName, Supplier<T> pageSupplier) {
         String locator = String.format("//android.widget.TextView[@text=\"%s\"]", settingName);
         getDriverInstance().findElement(By.xpath(locator)).click();
-        if (informationPopUpContainer.isDisplayed()) {
-            okButton().click();
-        }
+        closeInformationPopUpIfItAppears();
         return pageSupplier.get();
     }
 
-    public <T> T closeSettingAndOpenNeededSetting(String settingName, Supplier<T> pageSupplier) {
+    public <T> T closeSettingAndOpenNeededSettingScreen(String settingName, Supplier<T> pageSupplier) {
+        waitUtils().tryWaitUntil(() -> backButton().isDisplayed());
         backButton().click();
-        openNeededSettingScreen(settingName, pageSupplier);
-        return pageSupplier.get();
+        waitUtils().tryWaitUntil(() -> isElementShown(settingsScreenLabel));
+        return openNeededSettingScreen(settingName, pageSupplier);
     }
 }

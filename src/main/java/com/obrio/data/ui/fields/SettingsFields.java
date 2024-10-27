@@ -3,8 +3,8 @@ package com.obrio.data.ui.fields;
 public enum SettingsFields {
 
     NAME("Name"),
-    DATE_OF_BIRTH("Date of Birth"),
-    PLACE_OF_BIRTH("Place of Birth"),
+    DATE_OF_BIRTH("Date of birth"),
+    PLACE_OF_BIRTH("Place of birth"),
     GENDER("Gender"),
     RELATIONSHIP_STATUS("Relationship status"),
     EMAIL("Email"),

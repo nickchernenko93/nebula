@@ -4,7 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="41968955-42e9-4875-84d9-ed7329e088f7" name="Changes" comment="" />
+    <list default="true" id="41968955-42e9-4875-84d9-ed7329e088f7" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/data/ui/fields/SettingsFields.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/data/ui/fields/SettingsFields.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/elements/AbstractUIElements.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/elements/AbstractUIElements.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/elements/Input.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/elements/Input.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/pages/HomeScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/pages/HomeScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/pages/registration_screens/MotivationScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/pages/registration_screens/MotivationScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/pages/registration_screens/RegistrationHomeScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/pages/registration_screens/RegistrationHomeScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/pages/registration_screens/SignUpScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/pages/registration_screens/SignUpScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/pages/settings_screens/AccountSettingScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/pages/settings_screens/AccountSettingScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/pages/settings_screens/ProfileSettingScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/pages/settings_screens/ProfileSettingScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/pages/settings_screens/SettingsScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/pages/settings_screens/SettingsScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/utils/DateFormatUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/utils/DateFormatUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/obrio/utils/ElementUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/obrio/utils/ElementUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/obrio/tests/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/obrio/tests/BaseNebulaRegistrationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/obrio/tests/VerifySuccessfullyNebulaRegistrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/obrio/tests/VerifySuccessfulNebulaRegistrationTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -45,7 +61,8 @@
     "TestNG.Testing.executor": "Debug",
     "TestNG.Testing.test (1).executor": "Debug",
     "TestNG.Testing.test.executor": "Debug",
-    "TestNG.VerifySuccessfullyNebulaRegistrationTest.executor": "Debug",
+    "TestNG.VerifySuccessfulNebulaRegistrationTest.executor": "Debug",
+    "TestNG.VerifySuccessfullyNebulaRegistrationTest.executor": "Run",
     "TestNG.VerifySuccessfullyNebulaRegistrationTest.verifyDayOfBirthPageOpened.executor": "Run",
     "TestNG.VerifySuccessfullyNebulaRegistrationTest.verifyHomePageIsOpened.executor": "Debug",
     "git-widget-placeholder": "nebula-task",
@@ -64,12 +81,14 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.obrio.pages.registration_screens" />
+      <recent name="com.obrio.pages.goals_screens" />
+      <recent name="com.obrio.pages.settings_screens" />
       <recent name="com.obrio.data.registration" />
       <recent name="com.obrio.utils" />
-      <recent name="com.obrio.pages" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.VerifySuccessfullyNebulaRegistrationTest">
+  <component name="RunManager" selected="TestNG.VerifySuccessfulNebulaRegistrationTest">
     <configuration name="Testing.test" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="NebulaTestTaskJava" />
       <extension name="coverage">
@@ -88,7 +107,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="VerifySuccessfullyNebulaRegistrationTest" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="VerifySuccessfulNebulaRegistrationTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="NebulaTestTaskJava" />
       <extension name="coverage">
         <pattern>
@@ -97,7 +116,7 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.obrio.tests" />
-      <option name="MAIN_CLASS_NAME" value="com.obrio.tests.VerifySuccessfullyNebulaRegistrationTest" />
+      <option name="MAIN_CLASS_NAME" value="com.obrio.tests.VerifySuccessfulNebulaRegistrationTest" />
       <option name="TEST_OBJECT" value="CLASS" />
       <properties />
       <listeners />
@@ -105,7 +124,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="VerifySuccessfullyNebulaRegistrationTest.test" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="VerifySuccessfulNebulaRegistrationTest.test" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="NebulaTestTaskJava" />
       <extension name="coverage">
         <pattern>
@@ -114,7 +133,7 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.obrio.tests" />
-      <option name="MAIN_CLASS_NAME" value="com.obrio.tests.VerifySuccessfullyNebulaRegistrationTest" />
+      <option name="MAIN_CLASS_NAME" value="com.obrio.tests.VerifySuccessfulNebulaRegistrationTest" />
       <option name="METHOD_NAME" value="test" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
@@ -123,7 +142,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="VerifySuccessfullyNebulaRegistrationTest.verifyDayOfBirthScreenOpenedAndDateIsSet" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="VerifySuccessfulNebulaRegistrationTest.verifyDayOfBirthScreenOpenedAndDateIsSet" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="NebulaTestTaskJava" />
       <extension name="coverage">
         <pattern>
@@ -132,7 +151,7 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.obrio.tests" />
-      <option name="MAIN_CLASS_NAME" value="com.obrio.tests.VerifySuccessfullyNebulaRegistrationTest" />
+      <option name="MAIN_CLASS_NAME" value="com.obrio.tests.VerifySuccessfulNebulaRegistrationTest" />
       <option name="METHOD_NAME" value="verifyDayOfBirthScreenOpenedAndDateIsSet" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
@@ -141,7 +160,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="VerifySuccessfullyNebulaRegistrationTest.verifyHomeScreenIsOpened" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="VerifySuccessfulNebulaRegistrationTest.verifyRegistrationHomeScreenIsOpened" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="NebulaTestTaskJava" />
       <extension name="coverage">
         <pattern>
@@ -150,8 +169,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.obrio.tests" />
-      <option name="MAIN_CLASS_NAME" value="com.obrio.tests.VerifySuccessfullyNebulaRegistrationTest" />
-      <option name="METHOD_NAME" value="verifyHomeScreenIsOpened" />
+      <option name="MAIN_CLASS_NAME" value="com.obrio.tests.VerifySuccessfulNebulaRegistrationTest" />
+      <option name="METHOD_NAME" value="verifyRegistrationHomeScreenIsOpened" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -161,10 +180,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.VerifySuccessfullyNebulaRegistrationTest" />
-        <item itemvalue="TestNG.VerifySuccessfullyNebulaRegistrationTest.verifyDayOfBirthScreenOpenedAndDateIsSet" />
-        <item itemvalue="TestNG.VerifySuccessfullyNebulaRegistrationTest.verifyHomeScreenIsOpened" />
-        <item itemvalue="TestNG.VerifySuccessfullyNebulaRegistrationTest.test" />
+        <item itemvalue="TestNG.VerifySuccessfulNebulaRegistrationTest" />
+        <item itemvalue="TestNG.VerifySuccessfulNebulaRegistrationTest.verifyDayOfBirthScreenOpenedAndDateIsSet" />
+        <item itemvalue="TestNG.VerifySuccessfulNebulaRegistrationTest.verifyRegistrationHomeScreenIsOpened" />
+        <item itemvalue="TestNG.VerifySuccessfulNebulaRegistrationTest.test" />
         <item itemvalue="TestNG.Testing.test" />
       </list>
     </recent_temporary>
@@ -190,7 +209,7 @@
       <workItem from="1729743028864" duration="10000" />
       <workItem from="1729743094121" duration="43000" />
       <workItem from="1729743156732" duration="6553000" />
-      <workItem from="1729840529178" duration="78801000" />
+      <workItem from="1729840529178" duration="92254000" />
     </task>
     <servers />
   </component>
@@ -201,14 +220,19 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/obrio/tests/VerifySuccessfullyNebulaRegistrationTest.java</url>
-          <line>192</line>
-          <option name="timeStamp" value="83" />
+          <url>file://$PROJECT_DIR$/src/test/java/com/obrio/tests/VerifySuccessfulNebulaRegistrationTest.java</url>
+          <line>196</line>
+          <option name="timeStamp" value="102" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/obrio/pages/SignUpScreen.java</url>
-          <line>58</line>
-          <option name="timeStamp" value="87" />
+          <url>file://$PROJECT_DIR$/src/test/java/com/obrio/tests/VerifySuccessfulNebulaRegistrationTest.java</url>
+          <line>198</line>
+          <option name="timeStamp" value="103" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/obrio/pages/settings_screens/SettingsScreen.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="112" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

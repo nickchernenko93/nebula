@@ -3,6 +3,8 @@ package com.obrio.pages;
 import com.obrio.elements.Button;
 import com.obrio.elements.IButton;
 import com.obrio.pages.settings_screens.SettingsScreen;
+import io.appium.java_client.pagefactory.AndroidBy;
+import io.appium.java_client.pagefactory.AndroidFindAll;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
 
@@ -24,7 +26,9 @@ public class HomeScreen extends BaseScreen {
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"genesis.nebula:id/zodiacBg\")")
     private WebElement zodiacLabel;
 
-    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"genesis.nebula:id/premiumCloseButton\")")
+    @AndroidFindAll({
+            @AndroidBy(uiAutomator = "new UiSelector().resourceId(\"genesis.nebula:id/premiumCloseButton\")"),
+            @AndroidBy(uiAutomator = "new UiSelector().resourceId(\"genesis.nebula:id/closeIb\")")})
     private WebElement closeButton;
 
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"genesis.nebula:id/character\")")
@@ -47,21 +51,18 @@ public class HomeScreen extends BaseScreen {
         return new SettingsScreen();
     }
 
-    public boolean isHoroscopeScreenOpened() {
+    public boolean isHomeScreenOpened() {
         return characterImage.isDisplayed();
     }
 
     protected void waitUntilLoaded() {
         waitUtils().tryWaitUntilElementIsNotDisplayed(() -> progressBarElement.isDisplayed());
         waitUtils().tryWaitUntilElementIsNotDisplayed(() -> uploadResultProgressViewElement.isDisplayed());
-        waitUtils().tryWaitUntil(() -> nebulaPremiumPopUp.isDisplayed());
         if (nebulaPremiumPopUp.isDisplayed()) {
             closeButton().click();
-        }
-        if (zodiacLabel.isDisplayed()) {
-            closeButton().click();
+            if (zodiacLabel.isDisplayed()) {
+                closeButton().click();
+            }
         }
     }
-
-
 }

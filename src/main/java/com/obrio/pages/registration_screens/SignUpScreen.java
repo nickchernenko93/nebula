@@ -58,13 +58,21 @@ public class SignUpScreen extends BaseScreen {
         }
     }
 
-    public HomeScreen fillInDataForRegistrationAndExpectHoroscopeScreen(String email, String password) {
+    public HomeScreen fillInDataForRegistrationAndExpectHomeScreen(String email, String password) {
+        boolean errorHandler = false;
         emailInput().type(email);
         passwordInput().type(password);
         confirmPasswordInput().type(password);
         signUpButton.click();
         if (isErrorMessageShown()) {
-            okButton().click();
+            try {
+                okButton().click();
+                errorHandler = true;
+            } catch (Exception ignored) {
+            }
+        }
+        if (errorHandler) {
+            return null;
         }
         return new HomeScreen();
     }
