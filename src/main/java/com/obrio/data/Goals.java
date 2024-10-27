@@ -1,6 +1,6 @@
 package com.obrio.data;
 
-public enum GoalValues {
+public enum Goals {
     UNDERSTAND_MYSELF("Understand myself and others better"),
     FIND_PERFECT_MATCH("Find my perfect match"),
     RECEIVE_DAILY_INSIGHT_AND_TIPS("Receive daily insights and tips"),
@@ -8,7 +8,7 @@ public enum GoalValues {
 
     private final String value;
 
-    GoalValues(String value) {
+    Goals(String value) {
         this.value = value;
     }
     public String getValue() {

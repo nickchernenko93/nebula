@@ -12,5 +12,4 @@ public enum RelationshipStatuses {
     public String getValue() {
         return value;
     }
-
 }

@@ -13,7 +13,7 @@ import java.util.Arrays;
 import java.util.Date;
 
 import static com.obrio.data.Genders.*;
-import static com.obrio.data.GoalValues.*;
+import static com.obrio.data.Goals.*;
 import static com.obrio.data.Interests.LOVE;
 import static com.obrio.data.Interests.MONEY;
 import static com.obrio.data.RelationshipStatuses.SINGLE;
@@ -40,6 +40,8 @@ public class VerifySuccessfullyNebulaRegistrationTest extends BaseTest {
     private String month;
     private String placeOfBirth;
     private String name;
+    private final String NEXT_BUTTON_NAME = "NEXT";
+    private final String SKIP_BUTTON_NAME = "SKIP";
 
     @DataProvider(name = "goalsDataProvider")
     public Object[][] goalsDataProvider() {
@@ -152,10 +154,13 @@ public class VerifySuccessfullyNebulaRegistrationTest extends BaseTest {
     }
 
     @Test(dependsOnMethods = "verifyInterestsSelectedAndHoroscopeRemainderScreenOpened", alwaysRun = true)
-    public void verifyNextButtonIsDisabledWhenInterestIsNotSelectedOnSocialMediaScreen() {
+    public void verifyNextButtonIsDisableWhenInterestIsNotSelectedAndSkipButtonIsEnableOnSocialMediaScreen() {
         socialMediaScreen = horoscopeRemainderScreen.clickSkipButtonAndOpenSocialMediaScreen();
-
-
+        soft.assertFalse(socialMediaScreen.isButtonEnabled(NEXT_BUTTON_NAME),
+                String.format("'%s' button should be disabled", NEXT_BUTTON_NAME));
+        soft.assertTrue(socialMediaScreen.isButtonEnabled(SKIP_BUTTON_NAME),
+                String.format("'%s' button should be enabled", SKIP_BUTTON_NAME));
+        soft.assertAll();
     }
 
     @AfterMethod(alwaysRun = true)

@@ -13,7 +13,9 @@ import java.time.Duration;
 import java.util.NoSuchElementException;
 
 public abstract class BaseScreen {
+
     private ElementUtils elementUtils;
+
     protected BaseScreen() {
         PageFactory.initElements(new AppiumFieldDecorator(DriverManager.getDriverInstance()), this);
     }
