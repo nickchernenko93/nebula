@@ -41,7 +41,7 @@ public class MotivationScreen extends BaseScreen {
 
     public MotivationScreen selectOption(String option) {
         String locator = String.format("//android.widget.Button[@text='%s']", option);
-        waitUtils().tryWaitUntil(getDriverInstance().findElement(By.xpath(locator))::isDisplayed);
+        waitUtils().waitUntilElementIsShownWithWait(() -> getDriverInstance().findElement(By.xpath(locator)).isDisplayed(), 2);
         WebElement element = getDriverInstance().findElement(By.xpath(locator));
         element.click();
         return this;

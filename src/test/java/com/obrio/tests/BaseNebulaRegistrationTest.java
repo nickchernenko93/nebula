@@ -1,7 +1,6 @@
 package com.obrio.tests;
 
 import com.github.javafaker.Faker;
-import com.obrio.data.ui.fields.SettingsFields;
 import com.obrio.drivers.DriverManager;
 import com.obrio.pages.HomeScreen;
 import com.obrio.pages.registration_screens.*;

@@ -244,7 +244,7 @@ public class VerifySuccessfulNebulaRegistrationTest extends BaseNebulaRegistrati
         yearOfBirth = dateFormatUtils.formatYearDate(date);
         placeOfBirth = FAKER.address().cityPrefix();
         name = FAKER.name().fullName();
-        password = FAKER.internet().password(8, 12, true, true);;
+        password = FAKER.internet().password(8, 12, true, true);
         email = FAKER.internet().emailAddress();
     }
 }
