@@ -83,18 +83,18 @@ public class VerifySuccessfulNebulaRegistrationTest extends BaseNebulaRegistrati
     }
 
     @Test(dependsOnMethods = "verifyBirthChatScreenIsOpened", alwaysRun = true)
-    public void verifyDayOfBirthScreenOpenedAndDateIsSet() {
+    public void verifyDateOfBirthScreenOpenedAndDateIsSet() {
         dateOfBirthScreen = birthChartScreen.clickNextButtonAndOpenDateOfBirthScreen();
         dateOfBirthScreen.selectMonth(monthOfBirth);
         dateOfBirthScreen.selectDay(dayOfBirth);
-        dateOfBirthScreen.selectYear(String.valueOf(yearOfBirth));
+        dateOfBirthScreen.selectYear(yearOfBirth);
 
         Arrays.asList(dayOfBirth, monthOfBirth, yearOfBirth).forEach(value -> soft.assertTrue(dateOfBirthScreen.isDateValueSetInPickerWheel(value),
                 String.format("'%s' value should be present and set", value)));
         soft.assertAll();
     }
 
-    @Test(dependsOnMethods = "verifyDayOfBirthScreenOpenedAndDateIsSet", alwaysRun = true)
+    @Test(dependsOnMethods = "verifyDateOfBirthScreenOpenedAndDateIsSet", alwaysRun = true)
     public void verifyInfoMessageAppearedAfterPressingIDontKnowButton() {
         String expectedInfoMessage = "We need the time of your birth to make astrological predictions more accurate." +
                 " You can come back and add it when you figure it out.";
@@ -220,8 +220,8 @@ public class VerifySuccessfulNebulaRegistrationTest extends BaseNebulaRegistrati
 
         soft.assertEquals(settingScreen.getValueFromField(EMAIL), email,
                 String.format(VALUE_FROM_FIELD_SHOULD_BE_EQUAL_TO_EXPECTED, EMAIL, email));
-        soft.assertEquals(settingScreen.getValueFromField(LOGIN_METHOD), EMAIL,
-                String.format(VALUE_FROM_FIELD_SHOULD_BE_EQUAL_TO_EXPECTED, LOGIN_METHOD, EMAIL));
+        soft.assertEquals(settingScreen.getValueFromField(LOGIN_METHOD), EMAIL.getValue(),
+                String.format(VALUE_FROM_FIELD_SHOULD_BE_EQUAL_TO_EXPECTED, LOGIN_METHOD, EMAIL.getValue()));
         soft.assertFalse(settingScreen.getValueFromField(USER_ID).isEmpty(),
                 String.format("'%s' field should not be empty", USER_ID));
         soft.assertAll();
@@ -234,18 +234,17 @@ public class VerifySuccessfulNebulaRegistrationTest extends BaseNebulaRegistrati
         }
     }
 
+    // TODO: 27.10.2024 need to create/use another generator for email/password because sometimes FAKER set invalid values
     private void createTestData() {
-        Date date = FAKER.date().birthday(34, 40);
+        Date date = FAKER.date().birthday(34, 36);
         DateFormatUtils dateFormatUtils = new DateFormatUtils();
         formattedDate = dateFormatUtils.formatDate(String.valueOf(date));
         dayOfBirth = dateFormatUtils.formatDayDate(date);
         monthOfBirth = dateFormatUtils.formatMonthDate(date);
-        yearOfBirth = String.valueOf(FAKER.number().numberBetween(1990, 1985));
+        yearOfBirth = dateFormatUtils.formatYearDate(date);
         placeOfBirth = FAKER.address().cityPrefix();
         name = FAKER.name().fullName();
-        password = "Iddqdd1!";
-        email = "mykola.chernenko93+2@gmail.com";
-//        password = FAKER.internet().password(8, 12, true, true);;
-//        email = FAKER.internet().emailAddress();
+        password = FAKER.internet().password(8, 12, true, true);;
+        email = FAKER.internet().emailAddress();
     }
 }

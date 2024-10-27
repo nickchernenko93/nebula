@@ -30,20 +30,19 @@ public class DateOfBirthScreen extends BaseScreen {
     }
 
     public void selectMonth(String month) {
-        swipeToMonthElement(By.xpath(String.format(DATE_PICKER_WHEEL, month)), 12);
+        swipeToMonthElement(By.xpath(String.format(DATE_PICKER_WHEEL, month)), 11);
     }
 
     public void selectDay(String day) {
-        swipeToDayElement(By.xpath(String.format(DATE_PICKER_WHEEL, day)), 31);
+        swipeToDayElement(By.xpath(String.format(DATE_PICKER_WHEEL, day)), 30);
     }
 
     // TODO: 26.10.2024 better select year through keyboard input because to many values present
     public void selectYear(String year) {
-        swipeToYearElement(By.xpath(String.format(DATE_PICKER_WHEEL, year)), 2);
+        swipeToYearElement(By.xpath(String.format(DATE_PICKER_WHEEL, year)), 10);
     }
 
     public boolean isDateValueSetInPickerWheel(String value) {
-
         return DriverManager.getDriverInstance().findElement(By.xpath(String.format(DATE_PICKER_WHEEL, value))).isDisplayed();
     }
 

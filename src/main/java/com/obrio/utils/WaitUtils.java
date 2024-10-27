@@ -69,11 +69,20 @@ public class WaitUtils {
         }
     }
 
+    public boolean tryWaitUntilElementIsDisplayed(Supplier<Boolean> condition, int duration) {
+        Function<WebDriver, Boolean> conditionToBeTrue = (WebDriver d) -> condition.get().equals(Boolean.TRUE);
+        return getWebDriverWait(duration).until(conditionToBeTrue);
+    }
+
     public void tryWaitUntilElementIsNotDisplayed(Supplier<Boolean> condition) {
         try {
             waitUntilElementIsNotDisplayed(condition);
         } catch (Exception ignored) {
         }
+    }
+
+    public boolean waitUntilElementIsShownWithWait(Supplier<Boolean> condition, int duration) {
+        return tryWaitUntilElementIsDisplayed(condition, duration);
     }
 
     public static void waitForSeconds(long seconds) {

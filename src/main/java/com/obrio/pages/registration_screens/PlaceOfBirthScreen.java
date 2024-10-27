@@ -40,7 +40,7 @@ public class PlaceOfBirthScreen extends BaseScreen {
     }
 
     public boolean isSearchedPlacePresentInSearchResult(String placeOfBirth) {
-        return getDriverInstance().findElement(By.xpath(String.format(
-                SEARCHED_VALUE_LOCATOR, placeOfBirth))).isDisplayed();
+        String locator = String.format(SEARCHED_VALUE_LOCATOR, placeOfBirth);
+        return waitUtils().waitUntilElementIsShownWithWait(() -> getDriverInstance().findElement(By.xpath(locator)).isDisplayed(), 3);
     }
 }

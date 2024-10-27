@@ -3,7 +3,6 @@ package com.obrio.pages.registration_screens;
 import com.obrio.elements.Button;
 import com.obrio.elements.IButton;
 import com.obrio.pages.BaseScreen;
-import com.obrio.utils.ElementUtils;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
 
@@ -25,7 +24,7 @@ public class RegistrationHomeScreen extends BaseScreen {
     }
 
     public boolean isRegistrationHomeScreenOpened() {
-        return ElementUtils.isElementShown(nebulaLabel);
+        return waitUtils().waitUntilElementIsShownWithWait(() -> nebulaLabel.isDisplayed(), 10);
     }
 
     public GoalsScreen clickGetStartedButtonAndOpenGoalsScreen() {
